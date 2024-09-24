@@ -18,7 +18,7 @@ namespace Common.Domain.Exceptions
 
 		}
 
-		public static void CheckedString(string value, string nameOf)
+		public static void CheckString(string value, string nameOf)
 		{
 			if (string.IsNullOrWhiteSpace(value))
 				throw new NullOrEmptyDomainDataException($"{nameOf} Is Null Or Empty");

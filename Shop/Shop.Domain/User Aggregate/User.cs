@@ -91,8 +91,8 @@ namespace _1.Shop.Domain.User_Aggregate
 
 		public void Guard(string phoneNumber, string email, IDomainUserService domainUserService)
 		{
-			NullOrEmptyDomainDataException.CheckedString(phoneNumber,nameof(phoneNumber));
-			NullOrEmptyDomainDataException.CheckedString(email,nameof(email));
+			NullOrEmptyDomainDataException.CheckString(phoneNumber,nameof(phoneNumber));
+			NullOrEmptyDomainDataException.CheckString(email,nameof(email));
 
 			if (phoneNumber.Length != 11)
 				throw new InvalidDomainDataException("شماره تلفن نامعتبر است.");

@@ -65,13 +65,13 @@ namespace _1.Shop.Domain.User_Aggregate
 			if (phoneNumber == null)
 				throw new NullOrEmptyDomainDataException();
 
-			NullOrEmptyDomainDataException.CheckedString(shire, nameof(shire));
-			NullOrEmptyDomainDataException.CheckedString(city, nameof(city));
-			NullOrEmptyDomainDataException.CheckedString(postalCode, nameof(postalCode));
-			NullOrEmptyDomainDataException.CheckedString(postalAddress, nameof(postalAddress));
-			NullOrEmptyDomainDataException.CheckedString(name, nameof(name));
-			NullOrEmptyDomainDataException.CheckedString(family, nameof(family));
-			NullOrEmptyDomainDataException.CheckedString(nationalCode, nameof(nationalCode));
+			NullOrEmptyDomainDataException.CheckString(shire, nameof(shire));
+			NullOrEmptyDomainDataException.CheckString(city, nameof(city));
+			NullOrEmptyDomainDataException.CheckString(postalCode, nameof(postalCode));
+			NullOrEmptyDomainDataException.CheckString(postalAddress, nameof(postalAddress));
+			NullOrEmptyDomainDataException.CheckString(name, nameof(name));
+			NullOrEmptyDomainDataException.CheckString(family, nameof(family));
+			NullOrEmptyDomainDataException.CheckString(nationalCode, nameof(nationalCode));
 
 			if (IranianNationalIdChecker.IsValid(nationalCode) == false)
 				throw new InvalidDomainDataException("کدملی نامعتبر است");
