@@ -78,6 +78,7 @@ namespace _1.Shop.Domain.User_Aggregate
 
 		public void ChargeWallet(Wallet wallet)
 		{
+			wallet.UserId = Id;
 			Wallets.Add(wallet);
 		}
 
