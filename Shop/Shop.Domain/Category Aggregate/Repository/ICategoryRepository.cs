@@ -1,11 +1,6 @@
-﻿using Common.Domain.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.L1.Domain.Repository;
 
-namespace _1.Shop.Domain.Category_Aggregate.Repositories
+namespace Shop.L1.Domain.Category_Aggregate.Repository
 {
 	public interface ICategoryRepository : IBaseRepository<Category>
 	{

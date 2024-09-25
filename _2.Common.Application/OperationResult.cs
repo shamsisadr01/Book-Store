@@ -1,4 +1,4 @@
-﻿namespace _2.Common.Application
+﻿namespace Common.L2.Application
 {
 	public class OperationResult<TData>
 	{

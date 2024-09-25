@@ -5,10 +5,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using _2.Common.Application.Validation;
+using C2.Application.Validation;
+using Common_2.Application.Validation;
 using FluentValidation;
+using L2.Common.Application.Validation;
 using MediatR;
 
-namespace _2.Common.Application.Validation
+namespace Common.L2.Application.Validation
 {
 	public class CommandValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 	{

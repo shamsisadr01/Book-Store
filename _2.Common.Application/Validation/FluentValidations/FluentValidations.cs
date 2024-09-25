@@ -1,9 +1,9 @@
-﻿using _2.Common.Application.FileUtil;
-using _2.Common.Application.SecurityUtil;
+﻿using Common.L2.Application.FileUtil;
+using Common.L2.Application.SecurityUtil;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 
-namespace _2.Common.Application.Validation.FluentValidations
+namespace Common.L2.Application.Validation.FluentValidations
 {
 	public static class FluentValidations
 	{
@@ -14,7 +14,7 @@ namespace _2.Common.Application.Validation.FluentValidations
 				if (file == null)
 					return;
 
-				if (!ImageValidator.IsImage(file))
+				if (!file.IsImage())
 				{
 					context.AddFailure(errorMessage);
 				}
@@ -46,7 +46,7 @@ namespace _2.Common.Application.Validation.FluentValidations
 				if (file == null)
 					return;
 
-				if (!FileValidation.IsValidFile(file))
+				if (!file.IsValidFile())
 				{
 					context.AddFailure(errorMessage);
 				}

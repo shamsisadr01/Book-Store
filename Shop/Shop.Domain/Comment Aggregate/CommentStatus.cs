@@ -1,4 +1,4 @@
-﻿namespace _1.Shop.Domain.Comment_Aggregate
+﻿namespace Shop.L1.Domain.Comment_Aggregate
 {
 	public enum CommentStatus
 	{

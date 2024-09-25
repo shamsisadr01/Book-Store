@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace Common.Domain
+namespace Common.L1.Domain
 {
 	public class BaseDomainEvent : INotification
 	{

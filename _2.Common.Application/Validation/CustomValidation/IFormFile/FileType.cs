@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-namespace _2.Common.Application.Validation.CustomValidation.IFormFile
+namespace Common.L2.Application.Validation.CustomValidation.IFormFile
 {
 	public class FileTypeAttribute : ValidationAttribute, IClientModelValidator
 	{

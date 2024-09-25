@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace _2.Common.Application
+namespace Common.L2.Application
 {
 	public interface IBaseCommandHandler<TCommand> : IRequestHandler<TCommand, OperationResult> where TCommand : IBaseCommand
 	{

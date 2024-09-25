@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1.Shop.Domain.SiteEntities.Repositories
+namespace Shop.L1.Domain.SiteEntities.Repositories
 {
 	public interface IBannerRepository : IBaseRepository<Banner>
 	{

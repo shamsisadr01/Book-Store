@@ -1,5 +1,5 @@
-﻿using _2.Common.Application.FileUtil.Interfaces;
-using Common.Application.Validation;
+﻿using Common.Application.Validation;
+using Common.L2.Application.FileUtil.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2.Common.Application.FileUtil.Services
+namespace Common.L2.Application.FileUtil.Services
 {
 	public class FileService : IFileService
 	{

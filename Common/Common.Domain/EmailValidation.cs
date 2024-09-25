@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Common.Domain
+namespace Common.L1.Domain
 {
 	public static class EmailValidation
 	{

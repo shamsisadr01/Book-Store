@@ -1,4 +1,4 @@
-﻿namespace _2.Common.Application.EmailUtil
+﻿namespace Common.L2.Application.EmailUtil
 {
 	public static class EmailTemplate
 	{

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1.Shop.Domain.SiteEntities
+namespace Shop.L1.Domain.SiteEntities
 {
 	public class Slider : BaseEntity
 	{

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
-namespace _2.Common.Application.FileUtil.Interfaces
+namespace Common.L2.Application.FileUtil.Interfaces
 {
 	public interface IFileService
 	{

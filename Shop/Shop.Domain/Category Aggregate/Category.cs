@@ -1,15 +1,10 @@
-﻿using _1.Shop.Domain.Category_Aggregate.Services;
-using Common.Domain;
-using Common.Domain.Exceptions;
-using Common.Domain.Utilities;
-using Common.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+using Common.L1.Domain.Utilities;
+using Common.L1.Domain.ValueObjects;
+using Shop.L1.Domain.Category_Aggregate.Services;
 
-namespace _1.Shop.Domain.Category_Aggregate
+namespace Shop.L1.Domain.Category_Aggregate
 {
 	public class Category : AggregateRoot
 	{

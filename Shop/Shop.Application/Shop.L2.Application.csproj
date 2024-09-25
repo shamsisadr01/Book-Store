@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Categories\" />
     <Folder Include="Comments\" />
     <Folder Include="SiteEntities\" />
     <Folder Include="Sellers\" />
@@ -21,6 +20,12 @@
     <Folder Include="Products\" />
     <Folder Include="Orders\" />
     <Folder Include="Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Domain\Common.L1.Domain.csproj" />
+    <ProjectReference Include="..\..\_2.Common.Application\Common.L2.Application.csproj" />
+    <ProjectReference Include="..\Shop.Domain\Shop.L1.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Common.Domain.Utilities
+namespace Common.L1.Domain.Utilities
 {
 	public static class TextHelper
 	{

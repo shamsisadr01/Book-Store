@@ -4,7 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 
-namespace _2.Common.Application
+namespace Common.L2.Application
 {
 	public static class ImageConvertor
 	{
@@ -56,7 +56,7 @@ namespace _2.Common.Application
 				using (var output = File.Open(output_Image_Path, FileMode.Create))
 				{
 
-					var qualityParamId = System.Drawing.Imaging.Encoder.Quality;
+					var qualityParamId = Encoder.Quality;
 
 					var encoderParameters = new EncoderParameters(1);
 

@@ -5,19 +5,19 @@ VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shop", "Shop", "{7D5097E8-B6AB-4C7C-B40E-08CD1C0C8832}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_1.Shop.Domain", "Shop\Shop.Domain\_1.Shop.Domain.csproj", "{D5E892D4-DE20-463A-8851-41163EDC5171}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L1.Domain", "Shop\Shop.Domain\Shop.L1.Domain.csproj", "{D5E892D4-DE20-463A-8851-41163EDC5171}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_2.Shop.Application", "Shop\Shop.Application\_2.Shop.Application.csproj", "{8DCD5D4F-5D7D-48BB-8B31-FD4141155169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L2.Application", "Shop\Shop.Application\Shop.L2.Application.csproj", "{8DCD5D4F-5D7D-48BB-8B31-FD4141155169}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_3.Shop.Infrastructure", "Shop\Shop.Infrastructure\_3.Shop.Infrastructure.csproj", "{F9861CAE-74CB-4F0E-BCBA-067660BE8BD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L4.Infrastructure", "Shop\Shop.Infrastructure\Shop.L4.Infrastructure.csproj", "{F9861CAE-74CB-4F0E-BCBA-067660BE8BD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_4.Shop.Presentation.Facade", "Shop\Shop.Presentation.Facade\_4.Shop.Presentation.Facade.csproj", "{93934C88-D62E-46B9-9B6C-A49C9B170C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L3.Presentation.Facade", "Shop\Shop.Presentation.Facade\Shop.L3.Presentation.Facade.csproj", "{93934C88-D62E-46B9-9B6C-A49C9B170C17}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{57561750-521F-42EA-A3BB-27E32ED9333E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_1.Common.Domain", "Common\Common.Domain\_1.Common.Domain.csproj", "{0CD78833-5165-40C7-B2ED-3978068616F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L1.Domain", "Common\Common.Domain\Common.L1.Domain.csproj", "{0CD78833-5165-40C7-B2ED-3978068616F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_2.Common.Application", "_2.Common.Application\_2.Common.Application.csproj", "{E1C7D774-4FD7-49F2-8322-3A5B32847E4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L2.Application", "_2.Common.Application\Common.L2.Application.csproj", "{E1C7D774-4FD7-49F2-8322-3A5B32847E4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

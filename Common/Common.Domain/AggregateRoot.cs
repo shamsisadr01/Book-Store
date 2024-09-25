@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Domain
+namespace Common.L1.Domain
 {
 	public class AggregateRoot : BaseEntity
 	{

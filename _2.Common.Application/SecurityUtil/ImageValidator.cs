@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using Microsoft.AspNetCore.Http;
 
-namespace _2.Common.Application.SecurityUtil
+namespace Common.L2.Application.SecurityUtil
 {
 	public static class ImageValidator
 	{

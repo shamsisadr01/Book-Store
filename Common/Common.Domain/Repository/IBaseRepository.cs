@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Common.L1.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Domain.Repository
+namespace Common.L1.Domain.Repository
 {
 	public interface IBaseRepository<TEntity> where TEntity : BaseEntity
 	{
@@ -16,7 +17,7 @@ namespace Common.Domain.Repository
 
 		Task AddAsync(TEntity entity);
 
-		void Add(TEntity entity);
+		Task Add(TEntity entity);
 
 		Task AddRange(ICollection<TEntity> entities);
 

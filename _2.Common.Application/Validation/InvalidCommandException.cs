@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2.Common.Application.Validation
+namespace Common.L2.Application.Validation
 {
 	public class InvalidCommandException : Exception
 	{

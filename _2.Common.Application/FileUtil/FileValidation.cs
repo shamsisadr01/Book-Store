@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Http;
 
-namespace _2.Common.Application.FileUtil
+namespace Common.L2.Application.FileUtil
 {
 	public static class FileValidation
 	{
