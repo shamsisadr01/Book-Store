@@ -1,12 +1,7 @@
-﻿using Common.Domain;
-using Common.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
 
-namespace _1.Shop.Domain.Comment_Aggregate
+namespace Shop.L1.Domain.Comment_Aggregate
 {
 	public class Comment : AggregateRoot
 	{

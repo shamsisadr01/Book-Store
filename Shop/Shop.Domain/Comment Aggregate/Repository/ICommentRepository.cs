@@ -1,11 +1,7 @@
-﻿using Common.Domain.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.L1.Domain.Repository;
+using Shop.L1.Domain.Comment_Aggregate;
 
-namespace _1.Shop.Domain.Comment_Aggregate.Repositories
+namespace Shop.L1.Domain.Comment_Aggregate.Repositories
 {
 	public interface ICommentRepository : IBaseRepository<Comment>
 	{
