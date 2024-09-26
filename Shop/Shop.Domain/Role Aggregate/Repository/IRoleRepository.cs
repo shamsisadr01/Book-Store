@@ -1,11 +1,9 @@
-﻿using Common.Domain.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace _1.Shop.Domain.Role_Aggregate.Repository
+using _1.Shop.Domain.Role_Aggregate;
+using Common.L1.Domain.Repository;
+
+namespace Shop.L1.Domain.Role_Aggregate.Repository
 {
 	public interface IRoleRepository : IBaseRepository<Role>
 	{

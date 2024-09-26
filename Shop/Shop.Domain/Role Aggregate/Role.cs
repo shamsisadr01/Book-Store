@@ -1,12 +1,9 @@
-﻿using Common.Domain;
-using Common.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace _1.Shop.Domain.Role_Aggregate
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+
+namespace Shop.L1.Domain.Role_Aggregate
 {
 	public class Role : AggregateRoot
 	{

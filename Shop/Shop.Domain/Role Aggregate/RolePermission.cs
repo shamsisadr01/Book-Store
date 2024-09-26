@@ -1,10 +1,16 @@
-﻿using Common.Domain;
+﻿
+using Common.L1.Domain;
 
-namespace _1.Shop.Domain.Role_Aggregate
+namespace Shop.L1.Domain.Role_Aggregate
 {
 	public class RolePermission : BaseEntity
 	{
-		public long RoleId { get; private set; }
+		public RolePermission(Permission permission)
+		{
+			Permission = permission;
+		}
+
+		public long RoleId { get; internal set; }
 		public Permission Permission { get; private set; }
 	}
 }
