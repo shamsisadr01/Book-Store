@@ -1,10 +1,12 @@
-﻿using _1.Shop.Domain.Product_Aggregate.Services;
-using Common.Domain;
-using Common.Domain.Exceptions;
-using Common.Domain.ValueObjects;
-using Common.Domain.Utilities;
+﻿
 
-namespace _1.Shop.Domain.Product_Aggregate
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+using Common.L1.Domain.Utilities;
+using Common.L1.Domain.ValueObjects;
+using Shop.L1.Domain.Product_Aggregate.Services;
+
+namespace Shop.L1.Domain.Product_Aggregate
 {
 	public class Product : AggregateRoot
 	{
