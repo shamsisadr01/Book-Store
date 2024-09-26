@@ -17,7 +17,7 @@ namespace Common.L1.Domain.Repository
 
 		Task AddAsync(TEntity entity);
 
-		Task Add(TEntity entity);
+		void Add(TEntity entity);
 
 		Task AddRange(ICollection<TEntity> entities);
 
