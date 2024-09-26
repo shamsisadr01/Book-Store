@@ -1,11 +1,8 @@
-﻿using Common.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace _1.Shop.Domain.Order_Aggregate.ValeObjects
+using Common.L1.Domain;
+
+namespace Shop.L1.Domain.Order_Aggregate.ValeObjects
 {
 	public class OrderDiscount : ValueObject
 	{

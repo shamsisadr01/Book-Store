@@ -14,4 +14,8 @@
     <PackageReference Include="System.Drawing.Common" Version="8.0.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.Domain\Common.L1.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

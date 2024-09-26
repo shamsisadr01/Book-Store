@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _1.Shop.Domain.Seller_Aggregate.Services
+﻿
+namespace Shop.L1.Domain.Seller_Aggregate.Services
 {
 	public interface ISellerDomainService
 	{

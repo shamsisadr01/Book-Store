@@ -1,10 +1,7 @@
-﻿using Common.Domain.Exceptions;
-using Common.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
 
 namespace Shop.L1.Domain.SiteEntities
 {

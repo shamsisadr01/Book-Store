@@ -1,7 +1,8 @@
-﻿using Common.Domain;
-using Common.Domain.Exceptions;
+﻿
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
 
-namespace _1.Shop.Domain.Order_Aggregate
+namespace Shop.L1.Domain.Order_Aggregate
 {
 	public class OrderItem : BaseEntity
 	{
@@ -20,6 +21,19 @@ namespace _1.Shop.Domain.Order_Aggregate
 		public int Count { get; private set; }
 		public int Price { get; private set; }
 		public int TotalPrice => Price * Count;
+
+		public void IncreaseCount(int count)
+		{
+			Count += count;
+		}
+
+		public void DecreaseCount(int count)
+		{
+			if (Count == 1) return;
+			if (Count - count <= 0) return;
+
+			Count -= count;
+		}
 
 		public void ChangeCount(int newCount)
 		{

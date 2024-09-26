@@ -1,6 +1,7 @@
-﻿using Common.Domain;
+﻿
+using Common.L1.Domain;
 
-namespace _1.Shop.Domain.Order_Aggregate
+namespace Shop.L1.Domain.Order_Aggregate
 {
 	public class OrderAddress : BaseEntity
 	{

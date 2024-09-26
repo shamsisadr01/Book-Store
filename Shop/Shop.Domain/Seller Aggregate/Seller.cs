@@ -1,14 +1,11 @@
-﻿using _1.Shop.Domain.Seller_Aggregate.Enums;
-using _1.Shop.Domain.Seller_Aggregate.Services;
-using Common.Domain;
-using Common.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace _1.Shop.Domain.Seller_Aggregate
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+using Shop.L1.Domain.Seller_Aggregate.Enums;
+using Shop.L1.Domain.Seller_Aggregate.Services;
+
+namespace Shop.L1.Domain.Seller_Aggregate
 {
 	public class Seller : AggregateRoot
 	{

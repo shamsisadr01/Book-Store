@@ -1,14 +1,10 @@
-﻿using _1.Shop.Domain.Order_Aggregate.Enums;
-using _1.Shop.Domain.Order_Aggregate.ValeObjects;
-using Common.Domain;
-using Common.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+using Shop.L1.Domain.Order_Aggregate.Enums;
+using Shop.L1.Domain.Order_Aggregate.ValeObjects;
 
-namespace _1.Shop.Domain.Order_Aggregate
+namespace Shop.L1.Domain.Order_Aggregate
 {
 	public class Order : AggregateRoot
 	{
@@ -68,6 +64,28 @@ namespace _1.Shop.Domain.Order_Aggregate
 			var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
 			if (currentItem != null)
 				Items.Remove(currentItem);
+		}
+
+		public void IncreaseItemCount(long itemId,int count)
+		{
+			ChangeOrderGuard();
+
+			var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
+			if (currentItem == null)
+				throw new NullOrEmptyDomainDataException();
+
+			currentItem.IncreaseCount(count);
+		}
+
+		public void DecreaseItemCount(long itemId, int count)
+		{
+			ChangeOrderGuard();
+
+			var currentItem = Items.FirstOrDefault(f => f.Id == itemId);
+			if (currentItem == null)
+				throw new NullOrEmptyDomainDataException();
+
+			currentItem.DecreaseCount(count);
 		}
 
 		public void ChangeCountItem(long itemId, int newCount)

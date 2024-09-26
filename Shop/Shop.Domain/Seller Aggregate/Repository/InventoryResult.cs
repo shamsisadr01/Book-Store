@@ -1,4 +1,4 @@
-﻿namespace _1.Shop.Domain.Seller_Aggregate.Repository
+﻿namespace Shop.L1.Domain.Seller_Aggregate.Repository
 {
 	public class InventoryResult
 	{
