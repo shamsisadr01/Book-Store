@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Products\Edit\" />
     <Folder Include="SiteEntities\" />
     <Folder Include="Sellers\" />
     <Folder Include="Roles\" />

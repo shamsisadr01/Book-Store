@@ -40,24 +40,28 @@ namespace Shop.L1.Domain.Product_Aggregate
 		public string Slug { get; private set; }
 		public SeoData SeoData { get; private set; }
 		public List<ProductImage> Images { get; private set; }
-		public List<ProductDetail> productDetails { get; private set; }
+		public List<ProductDetail> ProductDetails { get; private set; }
 
 
-		public void Edit(string title, string imageName, string description,
+		public void Edit(string title, string description,
 			long categoryId, long subCategoryId, long? secondarySubCategoryId,
 			string slug, SeoData seoData, IProductDomainService domainService)
 		{
-			NullOrEmptyDomainDataException.CheckString(imageName, nameof(imageName));
 			Guard(title, slug, description, domainService);
 
 			Title = title;
-			ImageName = imageName;
 			Description = description;
 			CategoryId = categoryId;
 			SubCategoryId = subCategoryId;
 			SecondarySubCategoryId = secondarySubCategoryId;
 			Slug = slug.ToSlug();
 			SeoData = seoData;
+		}
+
+		public void SetProductImage(string imageName)
+		{
+			NullOrEmptyDomainDataException.CheckString(imageName, nameof(imageName));
+			ImageName = imageName;
 		}
 
 		public void AddImage(ProductImage image)
@@ -79,7 +83,7 @@ namespace Shop.L1.Domain.Product_Aggregate
 		public void SetDetail(List<ProductDetail> productDetails)
 		{
 			productDetails.ForEach(s => s.ProductId = Id);
-			productDetails = productDetails;
+			ProductDetails = productDetails;
 		}
 
 		private void Guard(string title, string slug, string description,
