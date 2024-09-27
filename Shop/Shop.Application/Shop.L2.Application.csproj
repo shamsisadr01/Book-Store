@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SiteEntities\" />
     <Folder Include="Users\" />
   </ItemGroup>
 
