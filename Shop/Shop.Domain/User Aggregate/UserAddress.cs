@@ -1,7 +1,9 @@
-﻿using Common.Domain;
-using Common.Domain.Exceptions;
+﻿
 
-namespace _1.Shop.Domain.User_Aggregate
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+
+namespace Shop.L1.Domain.User_Aggregate
 {
 	public class UserAddress : BaseEntity
 	{

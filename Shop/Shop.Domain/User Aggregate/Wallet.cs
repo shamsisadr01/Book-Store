@@ -1,8 +1,9 @@
-﻿using _1.Shop.Domain.User_Aggregate.Enums;
-using Common.Domain;
-using Common.Domain.Exceptions;
+﻿
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+using Shop.L1.Domain.User_Aggregate.Enums;
 
-namespace _1.Shop.Domain.User_Aggregate
+namespace Shop.L1.Domain.User_Aggregate
 {
 	public class Wallet : BaseEntity
 	{

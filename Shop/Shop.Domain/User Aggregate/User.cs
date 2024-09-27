@@ -1,19 +1,17 @@
-﻿using _1.Shop.Domain.User_Aggregate.Enums;
-using _1.Shop.Domain.User_Aggregate.Services;
-using Common.Domain;
-using Common.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
+using Shop.L1.Domain.User_Aggregate;
+using Shop.L1.Domain.User_Aggregate.Enums;
+using Shop.L1.Domain.User_Aggregate.Services;
 
 namespace _1.Shop.Domain.User_Aggregate
 {
 	public class User : AggregateRoot
 	{
 		public User(string name, string family, string phoneNumber, string email,
-			string password, Gender gender, IDomainUserService domainUserService)
+			string password, Gender gender, IUserDomainService domainUserService)
 		{
 			Guard(phoneNumber, email, domainUserService);
 			Name = name;
@@ -22,6 +20,7 @@ namespace _1.Shop.Domain.User_Aggregate
 			Email = email;
 			Password = password;
 			Gender = gender;
+			AvatarName = "avatar.png";
 		}
 
 		public string Name { get; private set; }
@@ -29,6 +28,7 @@ namespace _1.Shop.Domain.User_Aggregate
 		public string PhoneNumber { get; private set; }
 		public string Email {  get; private set; }
 		public string Password { get; private set; }
+		public string AvatarName {  get; private set; }
 		public Gender Gender { get; private set; }
 
 		public List<UserRole> Roles { get; private set; }
@@ -37,7 +37,7 @@ namespace _1.Shop.Domain.User_Aggregate
 
 
 		public void Edit(string name, string family, string phoneNumber, string email, 
-			Gender gender, IDomainUserService domainUserService)
+			Gender gender, IUserDomainService domainUserService)
 		{
 			Guard(phoneNumber,email,domainUserService);
 			Name = name;
@@ -46,7 +46,7 @@ namespace _1.Shop.Domain.User_Aggregate
 			Email = email;
 		}
 
-		public static User RegisterUser(string email,string phoneNumber,string password, IDomainUserService domainUserService)
+		public static User RegisterUser(string email,string phoneNumber,string password, IUserDomainService domainUserService)
 		{
 			return new User("", "", phoneNumber, email, password, Gender.None, domainUserService);
 		}
@@ -88,8 +88,14 @@ namespace _1.Shop.Domain.User_Aggregate
 			Roles.Clear();
 			Roles.AddRange(roles);
 		}
+		public void SetAvatar(string avatar)
+		{
+			if(string.IsNullOrWhiteSpace(avatar))
+				avatar = "avatar.png";
+			AvatarName = avatar;
+		}
 
-		public void Guard(string phoneNumber, string email, IDomainUserService domainUserService)
+		public void Guard(string phoneNumber, string email, IUserDomainService domainUserService)
 		{
 			NullOrEmptyDomainDataException.CheckString(phoneNumber,nameof(phoneNumber));
 			NullOrEmptyDomainDataException.CheckString(email,nameof(email));

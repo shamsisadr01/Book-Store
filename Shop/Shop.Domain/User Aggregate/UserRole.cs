@@ -1,6 +1,6 @@
-﻿using Common.Domain;
+﻿using Common.L1.Domain;
 
-namespace _1.Shop.Domain.User_Aggregate
+namespace Shop.L1.Domain.User_Aggregate
 {
 	public class UserRole : BaseEntity
 	{
