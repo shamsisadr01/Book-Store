@@ -7,5 +7,6 @@ namespace Shop.L1.Domain.User_Aggregate.Repository
 {
 	public interface IUserRepository : IBaseRepository<User>
 	{
+		UserAddress GetUserAddressById(long addressId);
 	}
 }

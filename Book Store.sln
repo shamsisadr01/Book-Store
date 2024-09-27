@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L1.Domain", "Shop\Shop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L2.Application", "Shop\Shop.Application\Shop.L2.Application.csproj", "{8DCD5D4F-5D7D-48BB-8B31-FD4141155169}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L4.Infrastructure", "Shop\Shop.Infrastructure\Shop.L4.Infrastructure.csproj", "{F9861CAE-74CB-4F0E-BCBA-067660BE8BD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L3.Infrastructure", "Shop\Shop.Infrastructure\Shop.L3.Infrastructure.csproj", "{F9861CAE-74CB-4F0E-BCBA-067660BE8BD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L3.Presentation.Facade", "Shop\Shop.Presentation.Facade\Shop.L3.Presentation.Facade.csproj", "{93934C88-D62E-46B9-9B6C-A49C9B170C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L5.Presentation.Facade", "Shop\Shop.Presentation.Facade\Shop.L5.Presentation.Facade.csproj", "{93934C88-D62E-46B9-9B6C-A49C9B170C17}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{57561750-521F-42EA-A3BB-27E32ED9333E}"
 EndProject

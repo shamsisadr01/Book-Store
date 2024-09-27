@@ -46,9 +46,9 @@ namespace _1.Shop.Domain.User_Aggregate
 			Email = email;
 		}
 
-		public static User RegisterUser(string email,string phoneNumber,string password, IUserDomainService domainUserService)
+		public static User RegisterUser(string phoneNumber,string password, IUserDomainService domainUserService)
 		{
-			return new User("", "", phoneNumber, email, password, Gender.None, domainUserService);
+			return new User("", "", phoneNumber, "", password, Gender.None, domainUserService);
 		}
 
 		public void AddAddress(UserAddress address)
@@ -57,14 +57,14 @@ namespace _1.Shop.Domain.User_Aggregate
 			Addresses.Add(address);
 		}
 
-		public void EditAddress(UserAddress address)
+		public void EditAddress(UserAddress address, long addressId)
 		{
-			var oldAddress = Addresses.FirstOrDefault(a => a.Id == address.Id);
+			var oldAddress = Addresses.FirstOrDefault(a => a.Id == addressId);
 			if (oldAddress != null)
 				throw new NullOrEmptyDomainDataException("آدرس پیدا نشد.");
 
-			Addresses.Remove(oldAddress);
-			Addresses.Add(address);
+			oldAddress.Edit(address.Shire, address.City, address.PostalCode, address.PostalAddress, address.PhoneNumber,
+			address.Name, address.Family, address.NationalCode);
 		}
 
 		public void RemoveAddress(long addressId)

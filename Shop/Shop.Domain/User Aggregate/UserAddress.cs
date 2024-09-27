@@ -2,13 +2,14 @@
 
 using Common.L1.Domain;
 using Common.L1.Domain.Exceptions;
+using Common.L1.Domain.ValueObjects;
 
 namespace Shop.L1.Domain.User_Aggregate
 {
 	public class UserAddress : BaseEntity
 	{
 		public UserAddress(string shire, string city, string postalCode, string postalAddress,
-			string phoneNumber, string name, string family, string nationalCode)
+			PhoneNumber phoneNumber, string name, string family, string nationalCode)
 		{
 			Guard(shire, city, postalCode, postalAddress,
 		phoneNumber, name, family, nationalCode);
@@ -29,7 +30,7 @@ namespace Shop.L1.Domain.User_Aggregate
 		public string City { get; private set; }
 		public string PostalCode { get; private set; }
 		public string PostalAddress { get; private set; }
-		public string PhoneNumber { get; private set; }
+		public PhoneNumber PhoneNumber { get; private set; }
 		public string Name { get; private set; }
 		public string Family { get; private set; }
 		public string NationalCode { get; private set; }
@@ -37,7 +38,7 @@ namespace Shop.L1.Domain.User_Aggregate
 
 
 		public void Edit(string shire, string city, string postalCode, string postalAddress,
-			string phoneNumber, string name, string family, string nationalCode)
+			PhoneNumber phoneNumber, string name, string family, string nationalCode)
 		{
 			Guard(shire, city, postalCode, postalAddress,
 		phoneNumber, name, family, nationalCode);
@@ -62,7 +63,7 @@ namespace Shop.L1.Domain.User_Aggregate
 		}
 
 		public void Guard(string shire, string city, string postalCode, string postalAddress,
-			string phoneNumber, string name, string family, string nationalCode)
+			PhoneNumber phoneNumber, string name, string family, string nationalCode)
 		{
 			if (phoneNumber == null)
 				throw new NullOrEmptyDomainDataException();
