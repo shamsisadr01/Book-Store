@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common.L3.Query\Common.L4.Query.csproj" />
+    <ProjectReference Include="..\Shop\Shop.Infrastructure\Shop.L3.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Comments\GetById\" />
+    <Folder Include="Comments\GetByFilter\" />
+  </ItemGroup>
+
+</Project>
