@@ -11,9 +11,4 @@
     <ProjectReference Include="..\Shop\Shop.Infrastructure\Shop.L3.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Comments\GetById\" />
-    <Folder Include="Comments\GetByFilter\" />
-  </ItemGroup>
-
 </Project>
