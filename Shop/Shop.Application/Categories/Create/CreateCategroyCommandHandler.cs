@@ -19,7 +19,7 @@ namespace Shop.L2.Application.Categories.Create
 		public async Task<OperationResult> Handle(CreateCategroyCommand request, CancellationToken cancellationToken)
 		{
 			var category = new Category(request.title, request.slug, request.seoData,_domainService);
-			await _repository.Add(category);
+			 _repository.Add(category);
 			await _repository.Save();
 			return OperationResult.Success();
 		}

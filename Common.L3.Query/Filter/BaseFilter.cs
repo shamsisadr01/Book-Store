@@ -27,7 +27,7 @@ namespace Common.L4.Query.Filter
 			StartPage = currentPage - 4 <= 0 ? 1 : currentPage - 4;
 		}
 	}
-	public class BaseFilter<TData, TParam> : BaseFilter
+	public class BaseFilter<TData, TParam> : BaseFilter where TData : BaseDto where TParam : BaseFilterParam
 	{
 		public List<TData> Data { get; set; }
 		public TParam FilterParams { get; set; }
