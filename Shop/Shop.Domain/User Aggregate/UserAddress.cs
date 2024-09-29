@@ -8,6 +8,7 @@ namespace Shop.L1.Domain.User_Aggregate
 {
 	public class UserAddress : BaseEntity
 	{
+		private UserAddress() { }
 		public UserAddress(string shire, string city, string postalCode, string postalAddress,
 			PhoneNumber phoneNumber, string name, string family, string nationalCode)
 		{

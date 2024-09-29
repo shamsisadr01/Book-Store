@@ -39,7 +39,9 @@ namespace Shop.L4.Query.Orders.DTOs
 
 	public class OrderItemDto : BaseDto
 	{
-		public ProductOrderItem ProductOrderItem { get; set; }
+		public string ProductTitle { get; set; }
+		public string ProductSlug { get; set; }
+		public string ProductImageName { get; set; }
 		public string ShopName { get; set; }
 		public long OrderId { get;  set; }
 		public long InventoryId { get;  set; }
@@ -60,12 +62,7 @@ namespace Shop.L4.Query.Orders.DTOs
 		public int TotalItemCount { get; set; }
 	}
 
-	public class ProductOrderItem
-	{
-		public string ProductTitle { get; set; }
-		public string Slug {  get; set; }
-		public string ImageName {  get; set; }
-	}
+
 	public class OrderFilterParams : BaseFilterParam
 	{
 		public long? UserId { get; set; }

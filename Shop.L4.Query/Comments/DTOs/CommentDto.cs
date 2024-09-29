@@ -1,7 +1,6 @@
 ﻿
 
 using Common.L4.Query;
-using Common.L4.Query.BaseFilter;
 using Common.L4.Query.Filter;
 using Shop.L1.Domain.Comment_Aggregate;
 

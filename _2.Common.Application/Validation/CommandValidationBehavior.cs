@@ -1,14 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using _2.Common.Application.Validation;
-using C2.Application.Validation;
-using Common_2.Application.Validation;
+
 using FluentValidation;
-using L2.Common.Application.Validation;
 using MediatR;
 
 namespace Common.L2.Application.Validation

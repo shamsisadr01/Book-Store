@@ -10,6 +10,10 @@ namespace _1.Shop.Domain.User_Aggregate
 {
 	public class User : AggregateRoot
 	{
+		private User()
+		{
+
+		}
 		public User(string name, string family, string phoneNumber, string email,
 			string password, Gender gender, IUserDomainService domainUserService)
 		{

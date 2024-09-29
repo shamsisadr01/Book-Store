@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common.L2.Application.FileUtil.Interfaces;
+using Common.L2.Application.FileUtil.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Shop.L1.Domain.Category_Aggregate.Repository;
 using Shop.L1.Domain.Comment_Aggregate.Repositories;
@@ -35,6 +37,7 @@ namespace Shop.L3.Infrastructure
 			services.AddTransient<IUserRepository, UserRepository>();
 			services.AddTransient<ICommentRepository, CommentRepository>();
 			services.AddTransient<IShippingMethodRepository, ShippingMethodRepository>();
+			services.AddTransient<IFileService, FileService>();
 
 			services.AddTransient(_=> new DapperContext(connectionString));
 			services.AddDbContext<StoreContext>(options =>

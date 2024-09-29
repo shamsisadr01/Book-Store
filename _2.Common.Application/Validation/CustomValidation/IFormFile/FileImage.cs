@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Common.L2.Application.Validation.CustomValidation.IFormFile
 {

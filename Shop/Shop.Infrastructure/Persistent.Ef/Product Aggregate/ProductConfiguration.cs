@@ -15,7 +15,7 @@ namespace Shop.L3.Infrastructure.Persistent.Ef.Product_Aggregate
 		public void Configure(EntityTypeBuilder<Product> builder)
 		{
 			builder.ToTable("Products", "product");
-			builder.HasIndex("slug").IsUnique();
+			builder.HasIndex("Slug").IsUnique();
 
 			builder.Property(product=>product.Title).IsRequired().HasMaxLength(50);
 			builder.Property(product => product.Slug).IsRequired().IsUnicode(false);

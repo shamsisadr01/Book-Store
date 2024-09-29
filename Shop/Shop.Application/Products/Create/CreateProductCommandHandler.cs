@@ -32,7 +32,7 @@ namespace Shop.L2.Application.Products.Create
 			   request.SubCategoryId, request.SecondarySubCategoryId, request.Slug,
 			   request.SeoData, _domainService);
 
-			await _repository.Add(product);
+			 _repository.Add(product);
 
 			var productDetails = new List<ProductDetail>();
 			request.ProductDetails.ToList().ForEach(detail =>

@@ -1,6 +1,7 @@
 ﻿
 
 using Common.L1.Domain;
+using Common.L1.Domain.Exceptions;
 
 namespace Shop.L1.Domain.SiteEntities
 {
