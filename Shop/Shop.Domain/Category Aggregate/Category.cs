@@ -10,7 +10,7 @@ namespace Shop.L1.Domain.Category_Aggregate
 	{
 		private Category()
 		{
-
+			Childs = new List<Category>();
 		}
 		public Category(string title, string slug, SeoData seoData, ICategoryDomainService service)
 		{
@@ -20,6 +20,7 @@ namespace Shop.L1.Domain.Category_Aggregate
 			Title = title;
 			Slug = slug;
 			SeoData = seoData;
+			Childs = new List<Category>();
 		}
 
 		public string Title { get; private set; }
