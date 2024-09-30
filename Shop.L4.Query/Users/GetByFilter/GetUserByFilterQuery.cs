@@ -9,9 +9,9 @@ using Shop.L4.Query.Users.DTOs;
 
 namespace Shop.L4.Query.Users.GetByFilter
 {
-	public class GetUserByFilterQuery : QueryFilter<UserFilterResult, UserFilterParam>
+	public class GetUserByFilterQuery : QueryFilter<UserFilterResult, UserFilterParams>
 	{
-		public GetUserByFilterQuery(UserFilterParam filterParams) : base(filterParams)
+		public GetUserByFilterQuery(UserFilterParams filterParamses) : base(filterParamses)
 		{
 		}
 	}

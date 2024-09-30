@@ -16,7 +16,7 @@ public class GetUserByFilterQueryHandler : IQueryHandler<GetUserByFilterQuery, U
 
 	public async Task<UserFilterResult> Handle(GetUserByFilterQuery request, CancellationToken cancellationToken)
 	{
-		var @params = request.FilterParams;
+		var @params = request.FilterParamses;
 		var result = _storeContext.Users.OrderByDescending(d => d.Id).AsQueryable();
 
 		if (!string.IsNullOrWhiteSpace(@params.Email))

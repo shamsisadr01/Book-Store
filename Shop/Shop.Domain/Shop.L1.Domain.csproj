@@ -10,8 +10,4 @@
     <ProjectReference Include="..\..\Common\Common.Domain\Common.L1.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Order Aggregate\Events\" />
-  </ItemGroup>
-
 </Project>

@@ -35,14 +35,14 @@ namespace Shop.L4.Query.Users.DTOs
 		public Gender Gender { get; set; }
 	}
 
-	public class UserFilterParam : BaseFilterParam
+	public class UserFilterParams : BaseFilterParam
 	{
 		public string? PhoneNumber { get; set; }
 		public string? Email { get; set; }
 		public long? Id { get; set; }
 	}
 
-	public class UserFilterResult : BaseFilter<UserFilterData, UserFilterParam>
+	public class UserFilterResult : BaseFilter<UserFilterData, UserFilterParams>
 	{
 
 	}

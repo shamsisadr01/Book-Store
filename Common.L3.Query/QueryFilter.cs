@@ -6,10 +6,10 @@ namespace Common.L4.Query
 	where TResponse : BaseFilter
 	where TParam : BaseFilterParam
 	{
-		public TParam FilterParams { get; set; }
-		public QueryFilter(TParam filterParams)
+		public TParam FilterParamses { get; set; }
+		public QueryFilter(TParam filterParamses)
 		{
-			FilterParams = filterParams;
+			FilterParamses = filterParamses;
 		}
 	}
 }

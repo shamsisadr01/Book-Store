@@ -21,7 +21,7 @@ namespace Shop.L4.Query.Products.GetByFilter
 
 		public async Task<ProductFilterResult> Handle(GetProductsByFilterQuery request, CancellationToken cancellationToken)
 		{
-			var @params = request.FilterParams;
+			var @params = request.FilterParamses;
 			var result = _context.Products.OrderByDescending(d => d.Id).AsQueryable();
 
 			if (!string.IsNullOrWhiteSpace(@params.Slug))

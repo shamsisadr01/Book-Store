@@ -2,6 +2,7 @@
 using Common.L1.Domain;
 using Common.L1.Domain.Exceptions;
 using Shop.L1.Domain.Order_Aggregate.Enums;
+using Shop.L1.Domain.Order_Aggregate.Events;
 using Shop.L1.Domain.Order_Aggregate.ValeObjects;
 
 namespace Shop.L1.Domain.Order_Aggregate
@@ -110,6 +111,13 @@ namespace Shop.L1.Domain.Order_Aggregate
 
 			Address = orderAddress;
 			ShippingMethod = shippingMethod;
+		}
+
+		public void Finally()
+		{
+			Status = OrderStatus.Finally;
+			LastUpdate = DateTime.Now;
+			AddDomainEvent(new OrderFinalized(Id));
 		}
 
 		public void ChangeOrderGuard()

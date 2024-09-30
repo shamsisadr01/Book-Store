@@ -5,7 +5,7 @@ using Shop.L4.Query.Roles.DTOs;
 
 namespace Shop.L4.Query.Roles.GetByList
 {
-	public class GetRolesBtListQueryHandler : IQueryHandler<GetRolesBtListQuery, List<RoleDto>>
+	public class GetRolesBtListQueryHandler : IQueryHandler<GetRolesBytListQuery, List<RoleDto>>
 	{
 		private readonly StoreContext _storeContext;
 
@@ -13,7 +13,7 @@ namespace Shop.L4.Query.Roles.GetByList
 		{
 			_storeContext = storeContext;
 		}
-		public async Task<List<RoleDto>> Handle(GetRolesBtListQuery request, CancellationToken cancellationToken)
+		public async Task<List<RoleDto>> Handle(GetRolesBytListQuery request, CancellationToken cancellationToken)
 		{
 			return await _storeContext.Roles.Select(r => new RoleDto
 			{

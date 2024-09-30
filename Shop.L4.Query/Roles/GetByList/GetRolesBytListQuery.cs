@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace Shop.L4.Query.Roles.GetByList
 {
-	public record GetRolesBtListQuery:IQuery<List<RoleDto>>;
+	public record GetRolesBytListQuery:IQuery<List<RoleDto>>;
 }

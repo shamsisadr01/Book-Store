@@ -12,6 +12,7 @@ using Shop.L2.Application.Sellers;
 using Shop.L2.Application.Users;
 using Shop.L3.Infrastructure;
 using Shop.L4.Query.Categories.GetById;
+using Shop.L5.Presentation.Facade;
 
 namespace Shop.L6.Config
 {
@@ -33,6 +34,8 @@ namespace Shop.L6.Config
 			service.AddTransient<IUserDomainService, UserDomainService>();
 
 			service.AddValidatorsFromAssembly(typeof(Directories).Assembly);
+
+			service.InitFacade();
 		}
 	}
 }
