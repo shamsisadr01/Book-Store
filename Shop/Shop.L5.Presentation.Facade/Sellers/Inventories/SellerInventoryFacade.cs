@@ -16,7 +16,7 @@ internal class SellerInventoryFacade : ISellerInventoryFacade
 	{
 		return await _mediator.Send(command);
 	}
-	public async Task<OperationResult> AddInventory(EditSellerInventoryCommand command)
+	public async Task<OperationResult> EditInventory(EditSellerInventoryCommand command)
 	{
 		return await _mediator.Send(command);
 	}

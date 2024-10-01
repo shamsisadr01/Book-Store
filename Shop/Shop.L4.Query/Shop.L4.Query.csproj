@@ -11,6 +11,11 @@
     <ProjectReference Include="..\Shop.L3.Infrastructure\Shop.L3.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Users\Addresses\GetByList\" />
+    <Folder Include="Users\Addresses\DTOs\" />
+  </ItemGroup>
+
 
 
  

@@ -12,6 +12,6 @@ namespace Shop.L5.Presentation.Facade.Sellers.Inventories
 	public interface ISellerInventoryFacade
 	{
 		Task<OperationResult> AddInventory(AddSellerInventoryCommand command);
-		Task<OperationResult> AddInventory(EditSellerInventoryCommand command);
+		Task<OperationResult> EditInventory(EditSellerInventoryCommand command);
 	}
 }
