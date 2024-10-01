@@ -24,7 +24,7 @@ namespace Shop.L5.Presentation.Facade.Categories
 			_mediator = mediator;
 		}
 
-		public async Task<OperationResult> AddChild(AddChildCategoryCommand command)
+		public async Task<OperationResult<long>> AddChild(AddChildCategoryCommand command)
 		{
 			return await _mediator.Send(command);
 		}
@@ -34,7 +34,7 @@ namespace Shop.L5.Presentation.Facade.Categories
 			return await _mediator.Send(command);
 		}
 
-		public async Task<OperationResult> Create(CreateCategroyCommand command)
+		public async Task<OperationResult<long>> Create(CreateCategoryCommand command)
 		{
 			return await _mediator.Send(command);
 		}

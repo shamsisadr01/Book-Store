@@ -23,7 +23,7 @@ namespace Shop.L6.Config
 			InfrastructureBootstrapper.Init(service, connectionString);
 
 			service.AddMediatR(ctf =>
-			ctf.RegisterServicesFromAssembly(typeof(CreateCategroyCommand).Assembly));
+			ctf.RegisterServicesFromAssembly(typeof(CreateCategoryCommand).Assembly));
 
 			service.AddMediatR(ctf =>
 			ctf.RegisterServicesFromAssembly(typeof(GetCategoryByIdQuery).Assembly));

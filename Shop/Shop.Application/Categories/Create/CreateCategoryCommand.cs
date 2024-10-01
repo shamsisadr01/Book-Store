@@ -3,5 +3,6 @@ using Common.L2.Application;
 
 namespace Shop.L2.Application.Categories.Create
 {
-	public record CreateCategroyCommand(string title, string slug, SeoData seoData) : IBaseCommand;
+	public record CreateCategoryCommand(string title, string slug, SeoData seoData) 
+		: IBaseCommand<long>;
 }

@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Shop.L2.Application.Categories.Create
 {
-	public class CreateCategroyCommandValidator : AbstractValidator<CreateCategroyCommand>
+	public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
 	{
-		public CreateCategroyCommandValidator()
+		public CreateCategoryCommandValidator()
 		{
 			RuleFor(category => category.title)
 				.NotNull().NotEmpty().WithMessage(ValidationMessages.required("عنوان"));
