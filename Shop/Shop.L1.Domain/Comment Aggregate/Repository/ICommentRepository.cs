@@ -1,7 +1,6 @@
 ﻿using Common.L1.Domain.Repository;
-using Shop.L1.Domain.Comment_Aggregate;
 
-namespace Shop.L1.Domain.Comment_Aggregate.Repositories
+namespace Shop.L1.Domain.Comment_Aggregate.Repository
 {
 	public interface ICommentRepository : IBaseRepository<Comment>
 	{

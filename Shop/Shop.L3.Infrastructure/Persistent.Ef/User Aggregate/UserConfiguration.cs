@@ -1,11 +1,6 @@
-﻿using _1.Shop.Domain.User_Aggregate;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Shop.L1.Domain.User_Aggregate;
 
 namespace Shop.L3.Infrastructure.Persistent.Ef.User_Aggregate
 {

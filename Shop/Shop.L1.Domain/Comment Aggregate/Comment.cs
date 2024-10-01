@@ -1,5 +1,6 @@
 ﻿using Common.L1.Domain;
 using Common.L1.Domain.Exceptions;
+using Shop.L1.Domain.Comment_Aggregate.Enums;
 
 namespace Shop.L1.Domain.Comment_Aggregate
 {

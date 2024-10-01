@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\_2.Common.Application\Common.L2.Application.csproj" />
+    <ProjectReference Include="..\Common.L2.Application\Common.L2.Application.csproj" />
   </ItemGroup>
+
+
 
 </Project>

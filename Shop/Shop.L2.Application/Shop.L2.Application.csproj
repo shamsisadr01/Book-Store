@@ -13,9 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.Domain\Common.L1.Domain.csproj" />
-    <ProjectReference Include="..\..\_2.Common.Application\Common.L2.Application.csproj" />
-    <ProjectReference Include="..\Shop.Domain\Shop.L1.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\Common.L1.Domain\Common.L1.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\Common.L2.Application\Common.L2.Application.csproj" />
+    <ProjectReference Include="..\Shop.L1.Domain\Shop.L1.Domain.csproj" />
   </ItemGroup>
+
+ 
 
 </Project>

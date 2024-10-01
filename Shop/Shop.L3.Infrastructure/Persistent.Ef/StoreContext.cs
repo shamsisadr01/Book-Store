@@ -1,4 +1,4 @@
-﻿using _1.Shop.Domain.User_Aggregate;
+﻿
 using Microsoft.EntityFrameworkCore;
 using Shop.L1.Domain.Category_Aggregate;
 using Shop.L1.Domain.Comment_Aggregate;
@@ -7,11 +7,8 @@ using Shop.L1.Domain.Product_Aggregate;
 using Shop.L1.Domain.Role_Aggregate;
 using Shop.L1.Domain.Seller_Aggregate;
 using Shop.L1.Domain.SiteEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Shop.L1.Domain.User_Aggregate;
+
 
 namespace Shop.L3.Infrastructure.Persistent.Ef
 {

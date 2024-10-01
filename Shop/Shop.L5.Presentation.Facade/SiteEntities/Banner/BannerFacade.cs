@@ -2,9 +2,9 @@
 using MediatR;
 using Shop.L2.Application.SiteEntities.Banner.Create;
 using Shop.L2.Application.SiteEntities.Banner.Edit;
-using Shop.L4.Query.SiteEntities._DTOs;
 using Shop.L4.Query.SiteEntities.Banners.GetById;
 using Shop.L4.Query.SiteEntities.Banners.GetByList;
+using Shop.L4.Query.SiteEntities.DTOs;
 
 namespace Shop.L5.Presentation.Facade.SiteEntities.Banner;
 

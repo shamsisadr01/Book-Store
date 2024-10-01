@@ -2,7 +2,7 @@
 using MediatR;
 using Shop.L2.Application.SiteEntities.Sliders.Create;
 using Shop.L2.Application.SiteEntities.Sliders.Edit;
-using Shop.L4.Query.SiteEntities._DTOs;
+using Shop.L4.Query.SiteEntities.DTOs;
 using Shop.L4.Query.SiteEntities.Sliders.GetById;
 using Shop.L4.Query.SiteEntities.Sliders.GetByList;
 

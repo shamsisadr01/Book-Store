@@ -1,6 +1,6 @@
 ﻿using Common.L2.Application;
 using Shop.L1.Domain.Comment_Aggregate;
-using Shop.L1.Domain.Comment_Aggregate.Repositories;
+using Shop.L1.Domain.Comment_Aggregate.Repository;
 
 namespace Shop.L2.Application.Comments.Create
 {

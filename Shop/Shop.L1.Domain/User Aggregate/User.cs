@@ -1,12 +1,9 @@
-﻿
-
-using Common.L1.Domain;
+﻿using Common.L1.Domain;
 using Common.L1.Domain.Exceptions;
-using Shop.L1.Domain.User_Aggregate;
 using Shop.L1.Domain.User_Aggregate.Enums;
 using Shop.L1.Domain.User_Aggregate.Services;
 
-namespace _1.Shop.Domain.User_Aggregate
+namespace Shop.L1.Domain.User_Aggregate
 {
 	public class User : AggregateRoot
 	{

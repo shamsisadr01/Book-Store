@@ -1,13 +1,10 @@
-﻿using _1.Shop.Domain.User_Aggregate;
+﻿
 using Common.L2.Application;
 using Common.L2.Application.SecurityUtil;
+using Shop.L1.Domain.User_Aggregate;
 using Shop.L1.Domain.User_Aggregate.Repository;
 using Shop.L1.Domain.User_Aggregate.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Shop.L2.Application.Users.Register
 {

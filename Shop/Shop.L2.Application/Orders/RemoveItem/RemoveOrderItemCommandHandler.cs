@@ -1,5 +1,5 @@
 ﻿using Common.L2.Application;
-using Shop.L1.Domain.Order_Aggregate.Repositories;
+using Shop.L1.Domain.Order_Aggregate.Repository;
 
 namespace Shop.L2.Application.Orders.RemoveItem;
 

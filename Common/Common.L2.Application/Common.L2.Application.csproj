@@ -16,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.Domain\Common.L1.Domain.csproj" />
+    <ProjectReference Include="..\Common.L1.Domain\Common.L1.Domain.csproj" />
   </ItemGroup>
+
+ 
 
 </Project>

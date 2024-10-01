@@ -5,31 +5,31 @@ VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shop", "Shop", "{7D5097E8-B6AB-4C7C-B40E-08CD1C0C8832}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L1.Domain", "Shop\Shop.Domain\Shop.L1.Domain.csproj", "{D5E892D4-DE20-463A-8851-41163EDC5171}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L1.Domain", "Shop\Shop.L1.Domain\Shop.L1.Domain.csproj", "{D5E892D4-DE20-463A-8851-41163EDC5171}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L2.Application", "Shop\Shop.Application\Shop.L2.Application.csproj", "{8DCD5D4F-5D7D-48BB-8B31-FD4141155169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L2.Application", "Shop\Shop.L2.Application\Shop.L2.Application.csproj", "{8DCD5D4F-5D7D-48BB-8B31-FD4141155169}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L3.Infrastructure", "Shop\Shop.Infrastructure\Shop.L3.Infrastructure.csproj", "{F9861CAE-74CB-4F0E-BCBA-067660BE8BD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L3.Infrastructure", "Shop\Shop.L3.Infrastructure\Shop.L3.Infrastructure.csproj", "{F9861CAE-74CB-4F0E-BCBA-067660BE8BD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L5.Presentation.Facade", "Shop\Shop.Presentation.Facade\Shop.L5.Presentation.Facade.csproj", "{93934C88-D62E-46B9-9B6C-A49C9B170C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L5.Presentation.Facade", "Shop\Shop.L5.Presentation.Facade\Shop.L5.Presentation.Facade.csproj", "{93934C88-D62E-46B9-9B6C-A49C9B170C17}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{57561750-521F-42EA-A3BB-27E32ED9333E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L1.Domain", "Common\Common.Domain\Common.L1.Domain.csproj", "{0CD78833-5165-40C7-B2ED-3978068616F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L1.Domain", "Common\Common.L1.Domain\Common.L1.Domain.csproj", "{0CD78833-5165-40C7-B2ED-3978068616F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L2.Application", "_2.Common.Application\Common.L2.Application.csproj", "{E1C7D774-4FD7-49F2-8322-3A5B32847E4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L2.Application", "Common\Common.L2.Application\Common.L2.Application.csproj", "{E1C7D774-4FD7-49F2-8322-3A5B32847E4A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L4.Query", "Shop.L4.Query\Shop.L4.Query.csproj", "{9B5DFF8B-BCDC-4D56-8A0C-D4D376F98ABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L4.Query", "Shop\Shop.L4.Query\Shop.L4.Query.csproj", "{9B5DFF8B-BCDC-4D56-8A0C-D4D376F98ABC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L4.Query", "Common.L3.Query\Common.L4.Query.csproj", "{74F68E4E-F00E-4F6A-AD92-6A89B5BC2117}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L4.Query", "Common\Common.L4.Query\Common.L4.Query.csproj", "{74F68E4E-F00E-4F6A-AD92-6A89B5BC2117}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EndPoints", "EndPoints", "{80BE17E0-CFA3-4B14-B660-3ACDCD63638B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Api", "Shop\Shop.Api\Shop.Api.csproj", "{A9E6B672-161B-4F00-875C-B6FCCDECFEE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L6.Config", "Shop\Shop.L5.Config\Shop.L6.Config.csproj", "{6D7B3753-149B-4657-97C8-1D7405B57660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.L6.Config", "Shop\Shop.L6.Config\Shop.L6.Config.csproj", "{6D7B3753-149B-4657-97C8-1D7405B57660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.AspNetCore", "Common\Common.AspNetCore\Common.AspNetCore.csproj", "{569DC63E-B825-49AE-B36D-1E94F0D5F79A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.AspNetCore", "Common\Common.AspNetCore\Common.AspNetCore.csproj", "{569DC63E-B825-49AE-B36D-1E94F0D5F79A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

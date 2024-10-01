@@ -1,11 +1,7 @@
-﻿using Shop.L1.Domain.Comment_Aggregate.Repositories;
+﻿
 using Shop.L1.Domain.Comment_Aggregate;
 using Shop.L3.Infrastructure._Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Shop.L1.Domain.Comment_Aggregate.Repository;
 
 namespace Shop.L3.Infrastructure.Persistent.Ef.Comment_Aggregate
 {

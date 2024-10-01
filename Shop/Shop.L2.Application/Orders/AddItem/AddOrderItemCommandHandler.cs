@@ -1,6 +1,6 @@
 ﻿using Common.L2.Application;
 using Shop.L1.Domain.Order_Aggregate;
-using Shop.L1.Domain.Order_Aggregate.Repositories;
+using Shop.L1.Domain.Order_Aggregate.Repository;
 using Shop.L1.Domain.Seller_Aggregate.Repository;
 
 namespace Shop.L2.Application.Orders.AddItem

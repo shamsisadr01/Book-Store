@@ -1,11 +1,6 @@
 ﻿using Common.L2.Application;
 using Shop.L1.Domain.Order_Aggregate.Enums;
-using Shop.L1.Domain.Order_Aggregate.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Shop.L1.Domain.Order_Aggregate.Repository;
 
 namespace Shop.L2.Application.Orders.SendOrderCommand
 {

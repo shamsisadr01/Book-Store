@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using _1.Shop.Domain.User_Aggregate;
+﻿
 using Microsoft.EntityFrameworkCore;
+using Shop.L1.Domain.User_Aggregate;
 using Shop.L3.Infrastructure.Persistent.Ef;
 using Shop.L4.Query.Users.DTOs;
 

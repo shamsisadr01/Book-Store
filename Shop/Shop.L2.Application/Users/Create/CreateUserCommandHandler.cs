@@ -1,6 +1,6 @@
-﻿using _1.Shop.Domain.User_Aggregate;
-using Common.L2.Application;
+﻿using Common.L2.Application;
 using Common.L2.Application.SecurityUtil;
+using Shop.L1.Domain.User_Aggregate;
 using Shop.L1.Domain.User_Aggregate.Repository;
 using Shop.L1.Domain.User_Aggregate.Services;
 

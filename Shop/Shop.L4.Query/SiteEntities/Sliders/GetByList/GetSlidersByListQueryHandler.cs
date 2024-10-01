@@ -1,7 +1,7 @@
 ﻿using Common.L4.Query;
 using Microsoft.EntityFrameworkCore;
 using Shop.L3.Infrastructure.Persistent.Ef;
-using Shop.L4.Query.SiteEntities._DTOs;
+using Shop.L4.Query.SiteEntities.DTOs;
 
 namespace Shop.L4.Query.SiteEntities.Sliders.GetByList
 {

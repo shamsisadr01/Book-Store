@@ -3,6 +3,7 @@
 using Common.L4.Query;
 using Common.L4.Query.Filter;
 using Shop.L1.Domain.Comment_Aggregate;
+using Shop.L1.Domain.Comment_Aggregate.Enums;
 
 namespace Shop.L4.Query.Comments.DTOs
 {
