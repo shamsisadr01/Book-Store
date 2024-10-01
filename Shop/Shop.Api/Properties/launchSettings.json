@@ -20,6 +20,16 @@
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7180;http://localhost:5236"
     },
+    "Shop.Api.Production": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:5000;http://localhost:5001"
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
