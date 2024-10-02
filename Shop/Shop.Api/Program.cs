@@ -1,5 +1,6 @@
 using Common.AspNetCore.Middlewares;
 using Common.L2.Application;
+using Shop.Api.Infrastructure.JwtUtil;
 using Shop.L6.Config;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,8 @@ builder.Services.AddSwaggerGen();
 var stringConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 ShopBootstrapper.RegisterShopDependency(builder.Services, stringConnection);
 CommonBootstrapper.Init(builder.Services);
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,8 +26,8 @@ var app = builder.Build();
 //}
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
+app.UseAuthentication();
 app.UseApiCustomExceptionHandler();
 app.MapControllers();
 

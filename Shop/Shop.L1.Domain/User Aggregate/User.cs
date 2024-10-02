@@ -22,6 +22,7 @@ namespace Shop.L1.Domain.User_Aggregate
 			Password = password;
 			Gender = gender;
 			AvatarName = "avatar.png";
+			IsActive = true;
 		}
 
 		public string Name { get; private set; }
@@ -30,6 +31,7 @@ namespace Shop.L1.Domain.User_Aggregate
 		public string Email {  get; private set; }
 		public string Password { get; private set; }
 		public string AvatarName {  get; private set; }
+		public bool IsActive { get; private set; }
 		public Gender Gender { get; private set; }
 
 		public List<UserRole> Roles { get; private set; }
@@ -99,12 +101,13 @@ namespace Shop.L1.Domain.User_Aggregate
 		public void Guard(string phoneNumber, string email, IUserDomainService domainUserService)
 		{
 			NullOrEmptyDomainDataException.CheckString(phoneNumber,nameof(phoneNumber));
-			NullOrEmptyDomainDataException.CheckString(email,nameof(email));
+			//NullOrEmptyDomainDataException.CheckString(email,nameof(email));
 
 			if (phoneNumber.Length != 11)
 				throw new InvalidDomainDataException("شماره تلفن نامعتبر است.");
 
-			if(email.IsValidEmail())
+			if (!string.IsNullOrWhiteSpace(email))
+				if (email.IsValidEmail())
 				throw new InvalidDomainDataException("ایمیل نا معتبر است.");
 
 			if(phoneNumber != PhoneNumber)

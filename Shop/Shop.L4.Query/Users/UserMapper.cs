@@ -21,6 +21,7 @@ namespace Shop.L4.Query.Users
 				Gender = user.Gender,
 				Password = user.Password,
 				PhoneNumber = user.PhoneNumber,
+				IsActive = user.IsActive,
 				Roles = user.Roles.Select(r=>new UserRoleDto()
 				{
 					roleId = r.RoleId,

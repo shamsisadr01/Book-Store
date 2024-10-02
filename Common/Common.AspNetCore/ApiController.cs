@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Common.L2.Application;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Common.AspNetCore
 {
@@ -63,6 +64,30 @@ namespace Common.AspNetCore
 					AppStatusCode = AppStatusCode.Success
 				}
 			};
+		}
+
+		protected string JoinErrors()
+		{
+			var errors = new Dictionary<string, List<string>>();
+
+			if (!ModelState.IsValid)
+			{
+				if (ModelState.ErrorCount > 0)
+				{
+					for (int i = 0; i < ModelState.Values.Count(); i++)
+					{
+						var key = ModelState.Keys.ElementAt(i);
+						var value = ModelState.Values.ElementAt(i);
+
+						if (value.ValidationState == ModelValidationState.Invalid)
+						{
+							errors.Add(key, value.Errors.Select(x => string.IsNullOrEmpty(x.ErrorMessage) ? x.Exception?.Message : x.ErrorMessage).ToList());
+						}
+					}
+				}
+			}
+			var error = string.Join(" ", errors.Select(x => $"{string.Join(" - ", x.Value)}"));
+			return error;
 		}
 	}
 
