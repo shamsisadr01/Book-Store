@@ -15,11 +15,12 @@ public class GetUserByPhoneNumberQueryHandler : IQueryHandler<GetUserByPhoneNumb
 	}
 
 
-	public async Task<UserDto> Handle(GetUserByPhoneNumberQuery request, CancellationToken cancellationToken)
+	public async Task<UserDto?> Handle(GetUserByPhoneNumberQuery request, CancellationToken cancellationToken)
 	{
 		var user = await _storeContext.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.phoneNumber, cancellationToken);
 		if (user == null)
 			return null;
+
 		return await user.Map().SetUserRoleTitles(_storeContext);
 	}
 }

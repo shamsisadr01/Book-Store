@@ -23,6 +23,10 @@ namespace Shop.L1.Domain.User_Aggregate
 			Gender = gender;
 			AvatarName = "avatar.png";
 			IsActive = true;
+			Roles = new List<UserRole>();
+			Addresses = new List<UserAddress>();
+			Wallets = new List<Wallet>();
+			Tokens = new List<UserToken>();
 		}
 
 		public string Name { get; private set; }
@@ -34,9 +38,10 @@ namespace Shop.L1.Domain.User_Aggregate
 		public bool IsActive { get; private set; }
 		public Gender Gender { get; private set; }
 
-		public List<UserRole> Roles { get; private set; }
-		public List<UserAddress> Addresses { get; private set; }
-		public List<Wallet> Wallets { get; private set; }
+		public List<UserRole> Roles { get;  }
+		public List<UserAddress> Addresses { get;  }
+		public List<Wallet> Wallets { get;  }
+		public List<UserToken> Tokens { get;  }
 
 
 		public void Edit(string name, string family, string phoneNumber, string email, 
@@ -96,6 +101,27 @@ namespace Shop.L1.Domain.User_Aggregate
 			if(string.IsNullOrWhiteSpace(avatar))
 				avatar = "avatar.png";
 			AvatarName = avatar;
+		}
+
+		public void AddToken(string hashJwToken, string hashRefreshToken,
+			DateTime tokenExpireDate, DateTime refreshTokenExpireDate, string device)
+		{
+			var activeTokenCount = Tokens.Count(c=>c.RefreshTokenExpireDate > DateTime.Now);
+			if (activeTokenCount == 3)
+				throw new InvalidDomainDataException("امکان استفاده از 4 دستگاه همزمان وجود ندارد.");
+
+			var token = new UserToken(hashJwToken, hashRefreshToken, tokenExpireDate, refreshTokenExpireDate, device);
+			token.UserId = Id;
+			Tokens.Add(token);
+		}
+
+		public void RemoveToken(long tokenId)
+		{
+			var token = Tokens.FirstOrDefault(f => f.Id == tokenId);
+			if (token == null)
+				throw new InvalidDomainDataException("invalid TokenId");
+
+			Tokens.Remove(token);
 		}
 
 		public void Guard(string phoneNumber, string email, IUserDomainService domainUserService)
