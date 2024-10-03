@@ -2,6 +2,7 @@ using Common.AspNetCore;
 using Common.AspNetCore.Middlewares;
 using Common.L2.Application;
 using Microsoft.AspNetCore.Mvc;
+using Shop.Api.Infrastructure;
 using Shop.Api.Infrastructure.JwtUtil;
 using Shop.L6.Config;
 
@@ -31,6 +32,7 @@ builder.Services.AddSwaggerGen();
 var stringConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 ShopBootstrapper.RegisterShopDependency(builder.Services, stringConnection);
 CommonBootstrapper.Init(builder.Services);
+builder.Services.RegisterApiDependency();
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
 var app = builder.Build();
