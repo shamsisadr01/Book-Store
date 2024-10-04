@@ -16,7 +16,7 @@ public class GetSellerByFilterQueryHandler : IQueryHandler<GetSellerByFilterQuer
 
 	public async Task<SellerFilterResult> Handle(GetSellerByFilterQuery request, CancellationToken cancellationToken)
 	{
-		var @params = request.FilterParamses;
+		var @params = request.FilterParams;
 		var result = _storeContext.Sellers.OrderByDescending(d=>d.Id).AsQueryable();
 
 		if (!string.IsNullOrWhiteSpace(@params.NationalCode))

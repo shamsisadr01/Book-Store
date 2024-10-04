@@ -11,7 +11,7 @@ namespace Shop.L4.Query.Users.GetByFilter
 {
 	public class GetUserByFilterQuery : QueryFilter<UserFilterResult, UserFilterParams>
 	{
-		public GetUserByFilterQuery(UserFilterParams filterParamses) : base(filterParamses)
+		public GetUserByFilterQuery(UserFilterParams filterParams) : base(filterParams)
 		{
 		}
 	}

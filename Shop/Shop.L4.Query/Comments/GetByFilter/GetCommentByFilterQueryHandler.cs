@@ -21,7 +21,7 @@ namespace Shop.L4.Query.Comments.GetByFilter
 
 		public async Task<CommentFilterResult> Handle(GetCommentByFilterQuery request, CancellationToken cancellationToken)
 		{
-			var @params = request.FilterParamses;
+			var @params = request.FilterParams;
 
 			var result = _context.Comments.OrderByDescending(d => d.CreationDate).AsQueryable();
 

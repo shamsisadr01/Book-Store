@@ -20,7 +20,7 @@ namespace Shop.L4.Query.Orders.GetByFilter
 		}
 		public async Task<OrderFilterResult> Handle(GetOrdersByFilterQuery request, CancellationToken cancellationToken)
 		{
-			var @params = request.FilterParamses;
+			var @params = request.FilterParams;
 			var result = _context.Orders.OrderByDescending(d => d.Id).AsQueryable();
 
 			if (@params.Status != null)
