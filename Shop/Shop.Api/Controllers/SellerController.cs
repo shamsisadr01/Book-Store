@@ -1,4 +1,5 @@
 ﻿using Common.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shop.L5.Presentation.Facade.Sellers.Inventories;
@@ -8,6 +9,8 @@ using Shop.L2.Application.Sellers.Create;
 using Shop.L2.Application.Sellers.Edit;
 using Shop.L2.Application.Sellers.EditInventory;
 using Shop.L4.Query.Sellers.DTOs;
+using Shop.Api.Infrastructure.Security;
+using Shop.L1.Domain.Role_Aggregate.Enums;
 
 namespace Shop.Api.Controllers
 {
@@ -21,8 +24,8 @@ namespace Shop.Api.Controllers
 			_sellerInventoryFacade = sellerInventoryFacade;
 		}
 
-		[HttpGet]
-		public async Task<ApiResult<SellerFilterResult>> GetSellers(SellerFilterParams filterParams)
+		[HttpGet, PermissionChecker(Permission.Seller_Management)]
+		public async Task<ApiResult<SellerFilterResult>> GetSellersByFilter(SellerFilterParams filterParams)
 		{
 			var result = await _sellerFacade.GetSellersByFilter(filterParams);
 			return QueryResult(result);
@@ -35,28 +38,28 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpPost]
+		[HttpPost, PermissionChecker(Permission.Seller_Management)]
 		public async Task<ApiResult> CreateSeller(CreateSellerCommand command)
 		{
 			var result = await _sellerFacade.CreateSeller(command);
 			return CommandResult(result);
 		}
 
-		[HttpPut]
+		[HttpPut, PermissionChecker(Permission.Seller_Management)]
 		public async Task<ApiResult> EditSeller(EditSellerCommand command)
 		{
 			var result = await _sellerFacade.EditSeller(command);
 			return CommandResult(result);
 		}
 
-		[HttpPost("Inventory")]
+		[HttpPost("Inventory"), PermissionChecker(Permission.Add_Inventory)]
 		public async Task<ApiResult> AddInventory(AddSellerInventoryCommand command)
 		{
 			var result = await _sellerInventoryFacade.AddInventory(command);
 			return CommandResult(result);
 		}
 
-		[HttpPut("Inventory")]
+		[HttpPut("Inventory"), PermissionChecker(Permission.Edit_Inventory)]
 		public async Task<ApiResult> EditInventory(EditSellerInventoryCommand command)
 		{
 			var result = await _sellerInventoryFacade.EditInventory(command);

@@ -1,6 +1,9 @@
 ﻿using Common.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shop.Api.Infrastructure.Security;
+using Shop.L1.Domain.Role_Aggregate.Enums;
 using Shop.L2.Application.Products.AddImage;
 using Shop.L2.Application.Products.Create;
 using Shop.L2.Application.Products.Edit;
@@ -10,6 +13,7 @@ using Shop.L5.Presentation.Facade.Products;
 
 namespace Shop.Api.Controllers
 {
+	[PermissionChecker(Permission.CRUD_Product)]
 	public class ProductController : ApiController
 	{
 		private readonly IProductFacade _productFacade;
@@ -19,7 +23,7 @@ namespace Shop.Api.Controllers
 			_productFacade = productFacade;
 		}
 
-		[HttpGet]
+		[HttpGet,AllowAnonymous]
 		public async Task<ApiResult<ProductFilterResult>> GetProductByFilter([FromQuery] ProductFilterParams filterParams)
 		{
 			var result = await _productFacade.GetProductsByFilter(filterParams);
@@ -33,7 +37,7 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpGet("{slug}")]
+		[HttpGet("{slug}"),AllowAnonymous]
 		public async Task<ApiResult<ProductDto?>> GetProductBySlug(string slug)
 		{
 			var result = await _productFacade.GetProductBySlug(slug);
