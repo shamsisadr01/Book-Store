@@ -38,6 +38,13 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
+		[HttpGet("current"),Authorize]
+		public async Task<ApiResult<SellerDto?>> GetSellerByUserId()
+		{
+			var result = await _sellerFacade.GetSellerByUserId(User.GetUserId());
+			return QueryResult(result);
+		}
+
 		[HttpPost, PermissionChecker(Permission.Seller_Management)]
 		public async Task<ApiResult> CreateSeller(CreateSellerCommand command)
 		{
@@ -64,6 +71,28 @@ namespace Shop.Api.Controllers
 		{
 			var result = await _sellerInventoryFacade.EditInventory(command);
 			return CommandResult(result);
+		}
+
+		[HttpGet("Inventory")]
+		[PermissionChecker(Permission.Seller_Panel)]
+		public async Task<ApiResult<List<InventoryDto>>> GetInventories()
+		{
+			var seller = await _sellerFacade.GetSellerByUserId(User.GetUserId());
+			if (seller == null)
+				return QueryResult(new List<InventoryDto>());
+
+			var result = await _sellerInventoryFacade.GetList(seller.Id);
+			return QueryResult(result);
+		}
+
+		[HttpGet("Inventory/{inventoryId}")]
+		[PermissionChecker(Permission.Seller_Panel)]
+		public async Task<ApiResult<InventoryDto>> GetInventories(long inventoryId)
+		{
+			var result = await _sellerInventoryFacade.GetById(inventoryId);
+			if (result == null)
+				return QueryResult(new InventoryDto());
+			return QueryResult(result);
 		}
 	}
 }

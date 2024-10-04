@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shop.L4.Query.Sellers.DTOs;
 
 namespace Shop.L5.Presentation.Facade.Sellers.Inventories
 {
@@ -13,5 +14,7 @@ namespace Shop.L5.Presentation.Facade.Sellers.Inventories
 	{
 		Task<OperationResult> AddInventory(AddSellerInventoryCommand command);
 		Task<OperationResult> EditInventory(EditSellerInventoryCommand command);
+		Task<InventoryDto?> GetById(long inventoryId);
+		Task<List<InventoryDto>> GetList(long sellerId);
 	}
 }
