@@ -110,7 +110,7 @@ namespace Shop.Api.Controllers
 		}
 
 		[Authorize]
-		[HttpPost("Logout")]
+		[HttpDelete("Logout")]
 		public async Task<ApiResult> Logout()
 		{
 			var token = await HttpContext.GetTokenAsync("access_token");
@@ -133,7 +133,7 @@ namespace Shop.Api.Controllers
 			var uaParser = Parser.GetDefault();
 			var header = HttpContext.Request.Headers["user-agent"].ToString();
 			var device = "windows";
-			if (header != null)
+			if (!string.IsNullOrEmpty(header))
 			{
 				var info = uaParser.Parse(header);
 				device = $"{info.Device.Family}/{info.OS.Family} {info.OS.Major}.{info.OS.Minor} - {info.UA.Family}";

@@ -56,7 +56,7 @@ namespace Shop.L1.Domain.User_Aggregate
 
 		public static User RegisterUser(string phoneNumber,string password, IUserDomainService domainUserService)
 		{
-			return new User("", "", phoneNumber, "", password, Gender.None, domainUserService);
+			return new User("", "", phoneNumber, null, password, Gender.None, domainUserService);
 		}
 
 		public void AddAddress(UserAddress address)

@@ -44,7 +44,7 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpGet("{slug}"),AllowAnonymous]
+		[HttpGet("bySlug/{slug}"),AllowAnonymous]
 		public async Task<ApiResult<ProductDto?>> GetProductBySlug(string slug)
 		{
 			var result = await _productFacade.GetProductBySlug(slug);
