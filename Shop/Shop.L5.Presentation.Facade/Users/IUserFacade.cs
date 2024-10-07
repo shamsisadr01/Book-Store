@@ -1,5 +1,6 @@
 ﻿using Common.L2.Application;
 using Shop.L2.Application.Users.AddToken;
+using Shop.L2.Application.Users.ChangePassword;
 using Shop.L2.Application.Users.Create;
 using Shop.L2.Application.Users.Edit;
 using Shop.L2.Application.Users.Register;
@@ -13,6 +14,7 @@ public interface IUserFacade
 	Task<OperationResult> RegisterUser(RegisterUserCommand command);
 	Task<OperationResult> EditUser(EditUserCommand command);
 	Task<OperationResult> CreateUser(CreateUserCommand command);
+	Task<OperationResult> ChangePassword(ChangeUserPasswordCommand command);
 	Task<OperationResult> AddToken(AddUserTokenCommand command);
 	Task<OperationResult> RemoveToken(RemoveUserTokenCommand command);
 

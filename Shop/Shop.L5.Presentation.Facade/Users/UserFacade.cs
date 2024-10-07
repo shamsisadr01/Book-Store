@@ -3,6 +3,7 @@ using Common.L2.Application.SecurityUtil;
 using MediatR;
 using Shop.L1.Domain.User_Aggregate;
 using Shop.L2.Application.Users.AddToken;
+using Shop.L2.Application.Users.ChangePassword;
 using Shop.L2.Application.Users.Create;
 using Shop.L2.Application.Users.Edit;
 using Shop.L2.Application.Users.Register;
@@ -29,7 +30,12 @@ internal class UserFacade : IUserFacade
 		return await _mediator.Send(command);
 	}
 
-	public async Task<OperationResult> AddToken(AddUserTokenCommand command)
+    public async Task<OperationResult> ChangePassword(ChangeUserPasswordCommand command)
+    {
+        return await _mediator.Send(command);
+    }
+
+    public async Task<OperationResult> AddToken(AddUserTokenCommand command)
 	{
 		return await _mediator.Send(command);
 	}

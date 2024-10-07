@@ -1,9 +1,12 @@
-﻿using Common.AspNetCore;
+﻿using AutoMapper;
+using Common.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Api.Infrastructure.Security;
+using Shop.Api.ViewModels.Users;
 using Shop.L1.Domain.Role_Aggregate.Enums;
+using Shop.L2.Application.Users.ChangePassword;
 using Shop.L2.Application.Users.Create;
 using Shop.L2.Application.Users.Edit;
 using Shop.L4.Query.Users.DTOs;
@@ -15,10 +18,13 @@ namespace Shop.Api.Controllers
 	public class UsersController : ApiController
 	{
 		private readonly IUserFacade _userFacade;
-		public UsersController(IUserFacade userFacade)
-		{
-			_userFacade = userFacade;
-		}
+        private readonly IMapper _mapper;
+
+		public UsersController(IUserFacade userFacade, IMapper mapper)
+        {
+            _userFacade = userFacade;
+            _mapper = mapper;
+        }
 		[HttpGet]
 		[PermissionChecker(Permission.User_Management)]
 		public async Task<ApiResult<UserFilterResult>> GetUsers(UserFilterParams filterParams)
@@ -48,7 +54,17 @@ namespace Shop.Api.Controllers
 			var result = await _userFacade.CreateUser(command);
 			return CommandResult(result);
 		}
-		[HttpPut]
+
+        [HttpPut("ChangePassword")]
+        public async Task<ApiResult> ChangePassword(ChangePasswordViewModel viewModel)
+        {
+            var command = _mapper.Map<ChangeUserPasswordCommand>(viewModel);
+			command.UserId = User.GetUserId();
+            var result = await _userFacade.ChangePassword(command);
+            return CommandResult(result);
+        }
+
+        [HttpPut]
 		[PermissionChecker(Permission.User_Management)]
 		public async Task<ApiResult> Edit(EditUserCommand command)
 		{
