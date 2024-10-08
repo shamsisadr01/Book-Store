@@ -55,6 +55,19 @@ namespace Shop.L1.Domain.User_Aggregate
             Gender = gender;
         }
 
+        public void SetActiveAddress(long addressId)
+        {
+            var currentAddress = Addresses.FirstOrDefault(a => a.Id == addressId);
+            if (currentAddress == null)
+                throw new NullOrEmptyDomainDataException("آدرس پیدا نشد.");
+
+            foreach (var address in Addresses)
+            {
+                address.SetDeActive();
+            }
+			currentAddress.SetActive();
+        }
+
         public void ChangePassword(string newPassword)
         {
 			NullOrEmptyDomainDataException.CheckString(newPassword,nameof(newPassword));
@@ -74,7 +87,7 @@ namespace Shop.L1.Domain.User_Aggregate
 		public void EditAddress(UserAddress address, long addressId)
 		{
 			var oldAddress = Addresses.FirstOrDefault(a => a.Id == addressId);
-			if (oldAddress != null)
+			if (oldAddress == null)
 				throw new NullOrEmptyDomainDataException("آدرس پیدا نشد.");
 
 			oldAddress.Edit(address.Shire, address.City, address.PostalCode, address.PostalAddress, address.PhoneNumber,
@@ -84,7 +97,7 @@ namespace Shop.L1.Domain.User_Aggregate
 		public void RemoveAddress(long addressId)
 		{
 			var oldAddress = Addresses.FirstOrDefault(address => address.Id == addressId);
-			if (oldAddress != null)
+			if (oldAddress == null)
 				throw new NullOrEmptyDomainDataException("آدرس پیدا نشد.");
 
 			Addresses.Remove(oldAddress);

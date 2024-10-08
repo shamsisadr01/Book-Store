@@ -9,6 +9,7 @@ using Shop.L1.Domain.User_Aggregate;
 using Shop.L2.Application.Users.AddAddress;
 using Shop.L2.Application.Users.EditAddress;
 using Shop.L2.Application.Users.RemoveAddress;
+using Shop.L2.Application.Users.SetActiveAddress;
 using Shop.L4.Query.Users.Addresses.DTOs;
 using Shop.L5.Presentation.Facade.Users.Addresses;
 
@@ -53,8 +54,7 @@ namespace Shop.Api.Controllers
 		[HttpDelete("{addressId}")]
 		public async Task<ApiResult> Delete(long addressId)
 		{
-			var userId = 1;
-			var result = await _userAddress.DeleteAddress(new DeleteUserAddressCommand(userId, addressId));
+			var result = await _userAddress.DeleteAddress(new DeleteUserAddressCommand(User.GetUserId(), addressId));
 			return CommandResult(result);
 		}
 
@@ -68,5 +68,13 @@ namespace Shop.Api.Controllers
 			var result = await _userAddress.EditAddress(command);
 			return CommandResult(result);
 		}
-	}
+
+        [HttpPut("SetAddressActive/{addressId}")]
+        public async Task<ApiResult> SetAddressActive(long addressId)
+        {
+            var command = new SetActiveUserAddressCommand(User.GetUserId(), addressId);
+            var result = await _userAddress.SetAddressActive(command);
+            return CommandResult(result);
+        }
+    }
 }
