@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common.AspNetCore;
+using Common.L1.Domain.ValueObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,7 @@ namespace Shop.Api.Controllers
 			_mapper = mapper;
 		}
 
-		[HttpGet("{userId}")]
+		[HttpGet]
 		public async Task<ApiResult<List<AddressDto>>> GetByList()
 		{
 			var result = await _userAddress.GetList(User.GetUserId());
@@ -40,9 +41,11 @@ namespace Shop.Api.Controllers
 
 		[HttpPost]
 		public async Task<ApiResult> AddAddress(AddUserAddressViewModel viewModel)
-		{
-			var command = _mapper.Map<AddUserAddressCommand>(viewModel);
-			command.UserId = User.GetUserId();
+        {
+            var command = new AddUserAddressCommand(User.GetUserId(),viewModel.Shire,
+                viewModel.City,viewModel.PostalCode,viewModel.PostalAddress,new PhoneNumber(viewModel.PhoneNumber),
+                viewModel.Name,viewModel.Family,viewModel.NationalCode); //_mapper.Map<AddUserAddressCommand>(viewModel);
+			//command.UserId = User.GetUserId();
 			var result = await _userAddress.AddAddress(command);
 			return CommandResult(result);
 		}
@@ -57,9 +60,11 @@ namespace Shop.Api.Controllers
 
 		[HttpPut]
 		public async Task<ApiResult> EditAddress(EditUserAddressViewModel viewModel)
-		{
-			var command = _mapper.Map<EditUserAddressCommand>(viewModel);
-			command.UserId = User.GetUserId();
+        {
+            var command = new EditUserAddressCommand(viewModel.Shire,
+                viewModel.City, viewModel.PostalCode, viewModel.PostalAddress, new PhoneNumber(viewModel.PhoneNumber),
+                viewModel.Name, viewModel.Family, viewModel.NationalCode, User.GetUserId(),viewModel.Id); //_mapper.Map<EditUserAddressCommand>(viewModel);
+			//command.UserId = User.GetUserId();
 			var result = await _userAddress.EditAddress(command);
 			return CommandResult(result);
 		}

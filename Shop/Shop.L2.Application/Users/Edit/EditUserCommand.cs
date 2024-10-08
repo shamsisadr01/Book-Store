@@ -11,16 +11,6 @@ namespace Shop.L2.Application.Users.Edit
 {
 	public class EditUserCommand : IBaseCommand
 	{
-		public EditUserCommand(long userId, IFormFile? avatar, string name, string family, string phoneNumber, string email, Gender gender)
-		{
-			UserId = userId;
-			Avatar = avatar;
-			Name = name;
-			Family = family;
-			PhoneNumber = phoneNumber;
-			Email = email;
-			Gender = gender;
-		}
 		public long UserId { get; set; }
 		public IFormFile? Avatar { get; private set; }
 		public string Name { get; private set; }

@@ -64,9 +64,18 @@ namespace Shop.Api.Controllers
             return CommandResult(result);
         }
 
+        [HttpPut("Current")]
+        public async Task<ApiResult> EditUser([FromForm] EditUserViewModel viewModel)
+        {
+            var command = _mapper.Map<EditUserCommand>(viewModel);
+			command.UserId = User.GetUserId();
+            var result = await _userFacade.EditUser(command);
+            return CommandResult(result);
+        }
+
         [HttpPut]
 		[PermissionChecker(Permission.User_Management)]
-		public async Task<ApiResult> Edit(EditUserCommand command)
+		public async Task<ApiResult> Edit([FromForm]EditUserCommand command)
 		{
 			var result = await _userFacade.EditUser(command);
 			return CommandResult(result);

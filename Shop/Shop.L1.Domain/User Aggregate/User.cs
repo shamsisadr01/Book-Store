@@ -52,7 +52,8 @@ namespace Shop.L1.Domain.User_Aggregate
 			Family = family;
 			PhoneNumber = phoneNumber;
 			Email = email;
-		}
+            Gender = gender;
+        }
 
         public void ChangePassword(string newPassword)
         {
@@ -138,7 +139,7 @@ namespace Shop.L1.Domain.User_Aggregate
 				throw new InvalidDomainDataException("شماره تلفن نامعتبر است.");
 
 			if (!string.IsNullOrWhiteSpace(email))
-				if (email.IsValidEmail())
+				if (email.IsValidEmail() == false)
 				throw new InvalidDomainDataException("ایمیل نا معتبر است.");
 
 			if(phoneNumber != PhoneNumber)
