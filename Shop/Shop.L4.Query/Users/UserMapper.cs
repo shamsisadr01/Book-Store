@@ -22,7 +22,7 @@ namespace Shop.L4.Query.Users
 				Password = user.Password,
 				PhoneNumber = user.PhoneNumber,
 				IsActive = user.IsActive,
-				Roles = user.Roles?.Select(r=>new UserRoleDto()
+				Roles = user.Roles.Select(r=>new UserRoleDto()
 				{
 					roleId = r.RoleId,
 					RoleTitle ="",
@@ -32,7 +32,7 @@ namespace Shop.L4.Query.Users
 
 		public static async Task<UserDto> SetUserRoleTitles(this UserDto userDto,StoreContext context)
 		{
-			var roleIds = userDto.Roles?.Select(r => r.roleId);
+			var roleIds = userDto.Roles.Select(r => r.roleId);
 			var result = await context.Roles.Where(r => roleIds.Contains(r.Id)).ToListAsync();
 			var roles = new List<UserRoleDto>();
 			foreach (var role in result)

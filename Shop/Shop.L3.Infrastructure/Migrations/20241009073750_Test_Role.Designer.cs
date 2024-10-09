@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.L3.Infrastructure.Persistent.Ef;
 
@@ -11,9 +12,11 @@ using Shop.L3.Infrastructure.Persistent.Ef;
 namespace Shop.L3.Infrastructure.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20241009073750_Test_Role")]
+    partial class Test_Role
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -353,6 +356,30 @@ namespace Shop.L3.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Users", "user");
+                });
+
+            modelBuilder.Entity("Shop.L1.Domain.User_Aggregate.UserRole", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("RoleId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserRole");
                 });
 
             modelBuilder.Entity("Shop.L1.Domain.Category_Aggregate.Category", b =>
@@ -828,33 +855,6 @@ namespace Shop.L3.Infrastructure.Migrations
                                 .IsRequired();
                         });
 
-                    b.OwnsMany("Shop.L1.Domain.User_Aggregate.UserRole", "Roles", b1 =>
-                        {
-                            b1.Property<long>("UserId")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("bigint");
-
-                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<long>("Id"));
-
-                            b1.Property<DateTime>("CreationDate")
-                                .HasColumnType("datetime2");
-
-                            b1.Property<long>("RoleId")
-                                .HasColumnType("bigint");
-
-                            b1.HasKey("UserId", "Id");
-
-                            b1.HasIndex("UserId");
-
-                            b1.ToTable("Roles", "user");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
                     b.OwnsMany("Shop.L1.Domain.User_Aggregate.UserToken", "Tokens", b1 =>
                         {
                             b1.Property<long>("Id")
@@ -940,16 +940,28 @@ namespace Shop.L3.Infrastructure.Migrations
 
                     b.Navigation("Addresses");
 
-                    b.Navigation("Roles");
-
                     b.Navigation("Tokens");
 
                     b.Navigation("Wallets");
                 });
 
+            modelBuilder.Entity("Shop.L1.Domain.User_Aggregate.UserRole", b =>
+                {
+                    b.HasOne("Shop.L1.Domain.User_Aggregate.User", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Shop.L1.Domain.Category_Aggregate.Category", b =>
                 {
                     b.Navigation("Childs");
+                });
+
+            modelBuilder.Entity("Shop.L1.Domain.User_Aggregate.User", b =>
+                {
+                    b.Navigation("Roles");
                 });
 #pragma warning restore 612, 618
         }

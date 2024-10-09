@@ -62,16 +62,6 @@ namespace Shop.L3.Infrastructure.Persistent.Ef.User_Aggregate
 			});
 
 
-			builder.OwnsMany(b => b.Wallets, option =>
-			{
-				option.ToTable("Wallets", "user");
-				option.HasIndex(b => b.UserId);
-
-				option.Property(b => b.Description)
-					.IsRequired(false)
-					.HasMaxLength(500);
-			});
-
 			builder.OwnsMany(b => b.Tokens, option =>
 			{
 				option.ToTable("Tokens", "user");
@@ -90,6 +80,12 @@ namespace Shop.L3.Infrastructure.Persistent.Ef.User_Aggregate
 					.IsRequired(false)
 					.HasMaxLength(100);
 			});
-		}
+
+            builder.OwnsMany(b => b.Roles, option =>
+            {
+                option.ToTable("Roles", "user");
+                option.HasIndex(b => b.UserId);
+            });
+        }
 	}
 }
