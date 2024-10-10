@@ -15,9 +15,11 @@ public class RemoveCategoryCommandHandler : IBaseCommandHandler<RemoveCategoryCo
 	public async Task<OperationResult> Handle(RemoveCategoryCommand request, CancellationToken cancellationToken)
 	{
 		var result = await _categoryRepository.DeleteCategory(request.categoryId);
-		if(result)
-			return OperationResult.Success();
-
-		return OperationResult.Error("امکان حذف این دسته وجود ندارد.");
+        if (result)
+        {
+            await _categoryRepository.Save();
+            return OperationResult.Success();
+        }
+        return OperationResult.Error("امکان حذف این دسته وجود ندارد.");
 	}
 }
