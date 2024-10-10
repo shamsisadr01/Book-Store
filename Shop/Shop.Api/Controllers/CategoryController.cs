@@ -39,7 +39,7 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpGet("getChilds/{parentId}")]
+		[HttpGet("getchilds/{parentId}")]
 		public async Task<ApiResult<List<SubCategoryDto>>> GetCategoryByParentId(long parentId)
 		{
 			var result = await _categoryFacade.GetCategoriesByParentId(parentId);

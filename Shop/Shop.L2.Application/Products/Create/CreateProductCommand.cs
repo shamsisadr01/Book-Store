@@ -11,7 +11,7 @@ namespace Shop.L2.Application.Products.Create
 {
 	public class CreateProductCommand : IBaseCommand
 	{
-		public CreateProductCommand(string title, IFormFile imageFile,
+		/*public CreateProductCommand(string title, IFormFile imageFile,
 			string description, long categoryId, long subCategoryId, 
 			long secondarySubCategoryId, 
 			string slug, SeoData seoData, Dictionary<string, string> details)
@@ -25,16 +25,16 @@ namespace Shop.L2.Application.Products.Create
 			Slug = slug;
 			SeoData = seoData;
 			ProductDetails = details;
-		}
+		}*/
 
-		public string Title { get;private  set; }
-		public IFormFile ImageFile { get;private set; }
-		public string Description { get;private set; }
-		public long CategoryId { get;private set; }
-		public long SubCategoryId { get;private set; }
-		public long SecondarySubCategoryId { get;private set; }
-		public string Slug { get; private set; }
-		public SeoData SeoData { get; private set; }
-		public Dictionary<string, string> ProductDetails { get;private set; }
+		public string Title { get;  set; }
+		public IFormFile ImageFile { get; set; }
+		public string Description { get; set; }
+		public long CategoryId { get; set; }
+		public long SubCategoryId { get; set; }
+		public long SecondarySubCategoryId { get; set; }
+		public string Slug { get;  set; }
+		public SeoData? SeoData { get;  set; }
+		public Dictionary<string, string> ProductDetails { get; set; }
 	}
 }

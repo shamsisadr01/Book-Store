@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Api.Infrastructure.Security;
+using Shop.Api.ViewModels.Products;
 using Shop.L1.Domain.Role_Aggregate.Enums;
 using Shop.L2.Application.Products.AddImage;
 using Shop.L2.Application.Products.Create;
@@ -10,6 +11,7 @@ using Shop.L2.Application.Products.Edit;
 using Shop.L2.Application.Products.RemoveImage;
 using Shop.L4.Query.Products.DTOs;
 using Shop.L5.Presentation.Facade.Products;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Shop.Api.Controllers
 {
@@ -52,9 +54,20 @@ namespace Shop.Api.Controllers
 		}
 
 		[HttpPost]
-		public async Task<ApiResult> CreateProduct([FromForm]CreateProductCommand command)
+		public async Task<ApiResult> CreateProduct([FromForm] CreateProductViewModel viewModel)
 		{
-			var result = await _productFacade.CreateProduct(command);
+            var result = await _productFacade.CreateProduct(new CreateProductCommand()
+            {
+                SeoData = viewModel.SeoData.Map(),
+                CategoryId = viewModel.CategoryId,
+                Description = viewModel.Description,
+                ImageFile = viewModel.ImageFile,
+                SecondarySubCategoryId = viewModel.SecondarySubCategoryId,
+                Slug = viewModel.Slug,
+                ProductDetails = viewModel.GetSpecification(),
+                SubCategoryId = viewModel.SubCategoryId,
+                Title = viewModel.Title
+            });
 			return CommandResult(result);
 		}
 
