@@ -9,6 +9,8 @@ public interface IRoleFacade
 {
 	Task<OperationResult> CreateRole(CreateRoleCommand command);
 	Task<OperationResult> EditRole(EditRoleCommand command);
+	Task<OperationResult> DeleteRole(long roleId);
+
 	Task<RoleDto?> GetRoleById(long roleId);
 	Task<List<RoleDto>> GetRoles();
 }

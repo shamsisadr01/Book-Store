@@ -1,10 +1,12 @@
 ﻿using Common.L2.Application;
 using MediatR;
 using Shop.L2.Application.Roles.Create;
+using Shop.L2.Application.Roles.Delete;
 using Shop.L2.Application.Roles.Edit;
 using Shop.L4.Query.Roles.DTOs;
 using Shop.L4.Query.Roles.GetById;
 using Shop.L4.Query.Roles.GetByList;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Shop.L5.Presentation.Facade.Roles;
 
@@ -23,7 +25,13 @@ public class RoleFacade : IRoleFacade
 	{
 		return await _mediator.Send(command);
 	}
-	public async Task<RoleDto?> GetRoleById(long roleId)
+
+    public async Task<OperationResult> DeleteRole(long roleId)
+    {
+        return await _mediator.Send(new DeleteRoleCommand(roleId));
+    }
+
+    public async Task<RoleDto?> GetRoleById(long roleId)
 	{
 		return await _mediator.Send(new GetRoleByIdQuery(roleId));
 	}

@@ -47,5 +47,12 @@ namespace Shop.Api.Controllers
 			var result = await _roleFacade.EditRole(command);
 			return CommandResult(result);
 		}
-	}
+
+        [HttpDelete("{roleId}")]
+        public async Task<ApiResult> Delete(long roleId)
+        {
+            var result = await _roleFacade.DeleteRole(roleId);
+            return CommandResult(result);
+        }
+    }
 }

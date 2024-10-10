@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shop.L1.Domain.SiteEntities;
 
 namespace Shop.L3.Infrastructure.Persistent.Ef.Role_Aggregate
 {
@@ -14,5 +15,10 @@ namespace Shop.L3.Infrastructure.Persistent.Ef.Role_Aggregate
 		public RoleRepository(StoreContext context) : base(context)
 		{
 		}
-	}
+
+        public void Delete(Role role)
+        {
+            _storeContext.Roles.Remove(role);
+        }
+    }
 }
