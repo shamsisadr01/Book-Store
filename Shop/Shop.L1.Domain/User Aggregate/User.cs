@@ -134,14 +134,15 @@ namespace Shop.L1.Domain.User_Aggregate
 			Tokens.Add(token);
 		}
 
-		public void RemoveToken(long tokenId)
+		public string RemoveToken(long tokenId)
 		{
 			var token = Tokens.FirstOrDefault(f => f.Id == tokenId);
 			if (token == null)
 				throw new InvalidDomainDataException("invalid TokenId");
 
 			Tokens.Remove(token);
-		}
+            return token.HashJwToken;
+        }
 
 		public void Guard(string phoneNumber, string email, IUserDomainService domainUserService)
 		{

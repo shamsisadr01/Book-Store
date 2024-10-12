@@ -3,6 +3,7 @@ using Common.AspNetCore.Middlewares;
 using Common.L2.Application;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Shop.Api.Infrastructure;
 using Shop.Api.Infrastructure.JwtUtil;
@@ -60,6 +61,10 @@ ShopBootstrapper.RegisterShopDependency(builder.Services, stringConnection);
 CommonBootstrapper.Init(builder.Services);
 builder.Services.RegisterApiDependency();
 builder.Services.AddJwtAuthentication(builder.Configuration);
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+});
 
 var app = builder.Build();
 
