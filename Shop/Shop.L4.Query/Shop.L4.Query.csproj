@@ -14,6 +14,7 @@
   <ItemGroup>
     <Folder Include="Sellers\Inventories\GetById\" />
     <Folder Include="Sellers\Inventories\GetList\" />
+    <Folder Include="Sellers\Inventories\GetByProductId\" />
     <Folder Include="Users\Addresses\GetByList\" />
     <Folder Include="Users\Addresses\DTOs\" />
   </ItemGroup>

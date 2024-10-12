@@ -16,5 +16,7 @@ namespace Shop.L5.Presentation.Facade.Sellers.Inventories
 		Task<OperationResult> EditInventory(EditSellerInventoryCommand command);
 		Task<InventoryDto?> GetById(long inventoryId);
 		Task<List<InventoryDto>> GetList(long sellerId);
-	}
+
+        Task<List<InventoryDto>> GetByProductId(long productId);
+    }
 }

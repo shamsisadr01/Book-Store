@@ -9,13 +9,15 @@ namespace Shop.Api.Infrastructure.JwtUtil
 {
 	public class JwTokenBuilder
 	{
-		public static string BuildToken(UserDto userDto,IConfiguration configuration)
-		{
-			var claims = new List<Claim>()
+		public static string BuildToken(UserDto user,IConfiguration configuration)
+        {
+            var roles = user.Roles.Select(s => s.RoleTitle);
+            var claims = new List<Claim>()
 			{
-				new Claim(ClaimTypes.MobilePhone,userDto.PhoneNumber),
-				new Claim(ClaimTypes.NameIdentifier,userDto.Id.ToString())
-			};
+				new Claim(ClaimTypes.MobilePhone,user.PhoneNumber),
+				new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+                new Claim(ClaimTypes.Role,string.Join("-",roles))
+            };
 			var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:SignInKey"]));
 			var credential = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 

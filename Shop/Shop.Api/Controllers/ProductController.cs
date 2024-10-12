@@ -39,7 +39,7 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpGet("{id}")]
+		[HttpGet("{productId}"), AllowAnonymous]
 		public async Task<ApiResult<ProductDto?>> GetProductById(long productId)
 		{
 			var result = await _productFacade.GetProductById(productId);
@@ -72,10 +72,12 @@ namespace Shop.Api.Controllers
 		}
 
 		[HttpPut]
-		public async Task<ApiResult> EditProduct([FromForm] EditProductCommand command)
+		public async Task<ApiResult> EditProduct([FromForm] EditProductViewModel viewModel)
 		{
-			var result = await _productFacade.EditProduct(command);
-			return CommandResult(result);
+            var result = await _productFacade.EditProduct(new EditProductCommand(viewModel.ProductId, viewModel.Title, viewModel.ImageFile,
+                viewModel.Description, viewModel.CategoryId, viewModel.SubCategoryId, viewModel.SecondarySubCategoryId, viewModel.Slug, viewModel.SeoData.Map(),
+                viewModel.GetSpecification()));
+            return CommandResult(result);
 		}
 
 		[HttpPost("images")]

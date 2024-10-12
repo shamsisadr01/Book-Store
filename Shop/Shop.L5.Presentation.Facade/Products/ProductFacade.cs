@@ -9,16 +9,19 @@ using Shop.L4.Query.Products.GetByFilter;
 using Shop.L4.Query.Products.GetById;
 using Shop.L4.Query.Products.GetBySlug;
 using Shop.L4.Query.Products.GetForShop;
+using Shop.L5.Presentation.Facade.Sellers.Inventories;
 
 namespace Shop.L5.Presentation.Facade.Products;
 
 internal class ProductFacade : IProductFacade
 {
 	private readonly IMediator _mediator;
-	public ProductFacade(IMediator mediator)
-	{
-		_mediator = mediator;
-	}
+    private readonly ISellerInventoryFacade _inventoryFacade;
+    public ProductFacade(IMediator mediator, ISellerInventoryFacade inventoryFacade)
+    {
+        _mediator = mediator;
+        _inventoryFacade = inventoryFacade;
+    }
 	public async Task<OperationResult> CreateProduct(CreateProductCommand command)
 	{
 		return await _mediator.Send(command);
@@ -52,4 +55,19 @@ internal class ProductFacade : IProductFacade
 	{
 		return await _mediator.Send(new GetProductsForShopQuery(filterParams));
 	}
+
+    public async Task<SingleProductDto?> GetProductBySlugForSinglePage(string slug)
+    {
+        var product = await _mediator.Send(new GetProductBySlugQuery(slug));
+        if (product == null)
+            return null;
+
+        var inventories = await _inventoryFacade.GetByProductId(product.Id);
+        var model = new SingleProductDto()
+        {
+            Inventories = inventories,
+            ProductDto = product
+        };
+        return model;
+    }
 }

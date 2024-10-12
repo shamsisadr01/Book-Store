@@ -4,6 +4,7 @@ using Shop.L2.Application.Sellers.AddInventory;
 using Shop.L2.Application.Sellers.EditInventory;
 using Shop.L4.Query.Sellers.DTOs;
 using Shop.L4.Query.Sellers.Inventories.GetById;
+using Shop.L4.Query.Sellers.Inventories.GetByProductId;
 using Shop.L4.Query.Sellers.Inventories.GetList;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -34,4 +35,9 @@ internal class SellerInventoryFacade : ISellerInventoryFacade
 	{
 		return await _mediator.Send(new GetInventoriesQuery(sellerId));
 	}
+
+    public async Task<List<InventoryDto>> GetByProductId(long productId)
+    {
+        return await _mediator.Send(new GetInventoriesByProductIdQuery(productId));
+    }
 }

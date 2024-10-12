@@ -4,6 +4,7 @@ using Shop.L2.Application.Products.Create;
 using Shop.L2.Application.Products.Edit;
 using Shop.L2.Application.Products.RemoveImage;
 using Shop.L4.Query.Products.DTOs;
+using Shop.L4.Query.Sellers.DTOs;
 
 namespace Shop.L5.Presentation.Facade.Products
 {
@@ -17,6 +18,13 @@ namespace Shop.L5.Presentation.Facade.Products
 		Task<ProductDto?> GetProductById(long productId);
 		Task<ProductDto?> GetProductBySlug(string slug);
 		Task<ProductFilterResult> GetProductsByFilter(ProductFilterParams filterParams);
-		Task<ProductShopResult> GetProductsForStore(ProductShopFilterParam filterParams);
+        Task<SingleProductDto?> GetProductBySlugForSinglePage(string slug);
+        Task<ProductShopResult> GetProductsForStore(ProductShopFilterParam filterParams);
 	}
+
+    public class SingleProductDto
+    {
+        public ProductDto ProductDto { get; set; }
+        public List<InventoryDto> Inventories { get; set; }
+    }
 }

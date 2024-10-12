@@ -94,10 +94,11 @@ internal class GetProductsForShopQueryHandler : IQueryHandler<GetProductsForShop
                             ,ROW_NUMBER() OVER(PARTITION BY p.Id ORDER BY {inventoryOrderBy}) AS RN
             From {_dapperContext.Products} p
             left join {_dapperContext.Inventories} i on p.Id=i.ProductId
-            left join {_dapperContext.Sellers} s on i.SellerId=s.Id)A
+            left join {_dapperContext.Sellers} s on i.SellerId=s.Id) A
             WHERE  A.RN = 1 and A.Status=@status  {conditions} order By {orderBy} offset @skip ROWS FETCH NEXT @take ROWS ONLY";
 
 		var count = await sqlConnection.QueryFirstAsync<int>(sql, new { status = SellerStatus.Accepted });
+
 		var result = await sqlConnection.QueryAsync<ProductShopDto>(resultSql,
 			new { skip, take = @params.Take, status = SellerStatus.Accepted });
 		var model = new ProductShopResult()
