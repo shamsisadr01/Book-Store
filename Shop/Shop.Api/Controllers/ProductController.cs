@@ -53,7 +53,14 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpPost]
+        [HttpGet("single/{slug}"), AllowAnonymous]
+        public async Task<ApiResult<SingleProductDto?>> GetSingleProductBySlug(string slug)
+        {
+            var result = await _productFacade.GetProductBySlugForSinglePage(slug);
+            return QueryResult(result);
+        }
+
+        [HttpPost]
 		public async Task<ApiResult> CreateProduct([FromForm] CreateProductViewModel viewModel)
 		{
             var result = await _productFacade.CreateProduct(new CreateProductCommand()

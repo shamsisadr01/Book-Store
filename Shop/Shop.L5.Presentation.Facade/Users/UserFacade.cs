@@ -51,7 +51,7 @@ internal class UserFacade : IUserFacade
 		if(result.Status != OperationResultStatus.Success)
 			return OperationResult.Error();
 
-        await _distributedCache.RefreshAsync(CacheKeys.UserToken(result.Data));
+        await _distributedCache.RemoveAsync(CacheKeys.UserToken(result.Data));
 		return OperationResult.Success();
     }
 
@@ -60,7 +60,7 @@ internal class UserFacade : IUserFacade
 		var result = await _mediator.Send(command);
         if (result.Status == OperationResultStatus.Success)
         {
-            await _distributedCache.RefreshAsync(CacheKeys.User(command.UserId));
+            await _distributedCache.RemoveAsync(CacheKeys.User(command.UserId));
         }
 
         return result;
