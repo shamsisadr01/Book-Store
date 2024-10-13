@@ -7,6 +7,7 @@ using Common.L2.Application;
 using MediatR;
 using Shop.L2.Application.Comments.ChangeStatus;
 using Shop.L2.Application.Comments.Create;
+using Shop.L2.Application.Comments.Delete;
 using Shop.L2.Application.Comments.Edit;
 using Shop.L4.Query.Comments.DTOs;
 using Shop.L4.Query.Comments.GetByFilter;
@@ -39,10 +40,10 @@ namespace Shop.L5.Presentation.Facade.Comments
 			return await _mediator.Send(command);
 		}
 
-		/*public async Task<OperationResult> DeleteComment(DeleteCommentCommand command)
+		public async Task<OperationResult> DeleteComment(DeleteCommentCommand command)
 		{
 			return await _mediator.Send(command);
-		}*/
+		}
 
 		public async Task<CommentDto?> GetCommentById(long id)
 		{
