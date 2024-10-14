@@ -13,7 +13,9 @@ namespace Common.AspNetCore
 	    {
 		    if (principal == null)
 			    throw new ArgumentNullException(nameof(principal));
-		    return Convert.ToInt64(principal.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+
+            var id = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return Convert.ToInt64(id);
 	    }
 	}
 }

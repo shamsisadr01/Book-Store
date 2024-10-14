@@ -34,7 +34,7 @@ namespace Shop.Api.Controllers
 		[HttpPost("login")]
 		public async Task<ApiResult<LoginResultDto?>> Login(LoginViewModel loginViewModel)
 		{
-			if (ModelState.IsValid == false)
+			/*if (ModelState.IsValid == false)
 			{
 				return new ApiResult<LoginResultDto?>()
 				{
@@ -46,7 +46,7 @@ namespace Shop.Api.Controllers
 						Message = JoinErrors()
 					}
 				};
-			}
+			}*/
 			var user = await _userFacade.GetUserByPhoneNumber(loginViewModel.PhoneNumber);
 			if (user == null)
 			{
@@ -72,7 +72,7 @@ namespace Shop.Api.Controllers
 		[HttpPost("register")]
 		public async Task<ApiResult> Register(RegisterViewModel registerViewModel)
 		{
-			if (ModelState.IsValid == false)
+			/*if (ModelState.IsValid == false)
 			{
 				return new ApiResult()
 				{
@@ -83,7 +83,7 @@ namespace Shop.Api.Controllers
 						Message = JoinErrors()
 					}
 				};
-			}
+			}*/
 			var command = new RegisterUserCommand(new PhoneNumber(registerViewModel.PhoneNumber),
 				registerViewModel.Password);
 			var result = await _userFacade.RegisterUser(command);

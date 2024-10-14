@@ -5,6 +5,7 @@ using Common.L2.Application.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
@@ -20,11 +21,11 @@ namespace Common.AspNetCore.Middlewares
 	public class ApiCustomExceptionHandlerMiddleware
 	{
 		private readonly RequestDelegate _next;
-		private readonly IHostingEnvironment _env;
+		private readonly IWebHostEnvironment _env;
 		private readonly ILogger<ApiCustomExceptionHandlerMiddleware> _logger;
 
-		public ApiCustomExceptionHandlerMiddleware(RequestDelegate next, 
-			IHostingEnvironment env, ILogger<ApiCustomExceptionHandlerMiddleware> logger)
+		public ApiCustomExceptionHandlerMiddleware(RequestDelegate next,
+            IWebHostEnvironment env, ILogger<ApiCustomExceptionHandlerMiddleware> logger)
 		{
 			_next = next;
 			_env = env;

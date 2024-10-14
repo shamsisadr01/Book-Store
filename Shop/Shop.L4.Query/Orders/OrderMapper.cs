@@ -31,21 +31,21 @@ namespace Shop.L4.Query.Orders
 		}
 
 		public static async Task<List<OrderItemDto>> GetOrderItems(this OrderDto orderDto, DapperContext dapperContext)
-		{
-			using var connection = dapperContext.CreateConnection;
-			var sql = @$"SELECT o.roleId, s.ShopName ,o.OrderId,o.InventoryId,o.Count,o.price,
+        {
+            using var connection = dapperContext.CreateConnection;
+            var sql = @$"SELECT o.Id, s.ShopName ,o.OrderId,o.InventoryId,o.Count,o.price,
                           p.Title as ProductTitle , p.Slug as ProductSlug ,
                           p.ImageName as ProductImageName
                     FROM {dapperContext.OrderItems} o
-                    Inner Join {dapperContext.Inventories} i on o.InventoryId=i.roleId
-                    Inner Join {dapperContext.Products} p on i.ProductId=p.roleId
-                    Inner Join {dapperContext.Sellers} s on i.SellerId=s.roleId
+                    Inner Join {dapperContext.Inventories} i on o.InventoryId=i.Id
+                    Inner Join {dapperContext.Products} p on i.ProductId=p.Id
+                    Inner Join {dapperContext.Sellers} s on i.SellerId=s.Id
                     where o.OrderId=@orderId";
 
-			var result = await connection
-				.QueryAsync<OrderItemDto>(sql, new { orderId = orderDto.Id });
-			return result.ToList();
-		}
+            var result = await connection
+                .QueryAsync<OrderItemDto>(sql, new { orderId = orderDto.Id });
+            return result.ToList();
+        }
 
 		public static OrderFilterData MapFilterData(this Order order, StoreContext context)
 		{

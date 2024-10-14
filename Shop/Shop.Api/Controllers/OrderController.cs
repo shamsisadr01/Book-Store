@@ -31,10 +31,12 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpGet("/current")]
+		[HttpGet("current")]
 		public async Task<ApiResult<OrderDto?>> GetCurrentOrder()
-		{
-			var result = await _orderFacade.GetCurrentOrder(User.GetUserId());
+        {
+            var id = User.GetUserId();
+
+            var result = await _orderFacade.GetCurrentOrder(id);
 			return QueryResult(result);
 		}
 

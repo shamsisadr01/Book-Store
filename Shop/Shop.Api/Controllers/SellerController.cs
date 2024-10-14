@@ -86,7 +86,6 @@ namespace Shop.Api.Controllers
 		}
 
 		[HttpGet("Inventory/{inventoryId}")]
-		[PermissionChecker(Permission.Seller_Panel)]
 		public async Task<ApiResult<InventoryDto>> GetInventories(long inventoryId)
 		{
 			var result = await _sellerInventoryFacade.GetById(inventoryId);
