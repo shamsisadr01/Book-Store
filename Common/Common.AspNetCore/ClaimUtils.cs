@@ -17,5 +17,13 @@ namespace Common.AspNetCore
             var id = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             return Convert.ToInt64(id);
 	    }
-	}
+
+        public static string GetPhoneNumber(this ClaimsPrincipal principal)
+        {
+            if (principal == null)
+                throw new ArgumentNullException(nameof(principal));
+
+            return principal.FindFirst(ClaimTypes.MobilePhone)?.Value;
+        }
+    }
 }
