@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.L4.Query
 {
-	public interface IQuery<TResponse> : IRequest<TResponse> where TResponse : class
+	public interface IQuery<TResponse> : IRequest<TResponse> where TResponse : class?
 	{
 
 	}
