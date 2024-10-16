@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Api.Infrastructure.Security;
+using Shop.L1.Domain.Order_Aggregate.Enums;
 using Shop.L1.Domain.Role_Aggregate.Enums;
 using Shop.L2.Application.Orders.AddItem;
 using Shop.L2.Application.Orders.Checkout;
@@ -31,7 +32,22 @@ namespace Shop.Api.Controllers
 			return QueryResult(result);
 		}
 
-		[HttpGet("current")]
+        [HttpGet("current/filter")]
+        public async Task<ApiResult<OrderFilterResult>> GetUserOrdersByFilter(int pageId = 1,int take = 10,OrderStatus status = OrderStatus.Finally)
+        {
+            var result = await _orderFacade.GetOrdersByFilter(new OrderFilterParams()
+            {
+				PageId = pageId,
+				Take = take,
+				Status = status,
+				UserId = User.GetUserId(),
+				EndDate = null,
+				StartDate = null
+            });
+            return QueryResult(result);
+        }
+
+        [HttpGet("current")]
 		public async Task<ApiResult<OrderDto?>> GetCurrentOrder()
         {
             var id = User.GetUserId();
@@ -61,7 +77,14 @@ namespace Shop.Api.Controllers
 			return CommandResult(result);
 		}
 
-		[HttpPut("orderItem/increaseCount")]
+        [HttpPut("SendOrder/{orderId}")]
+        public async Task<ApiResult> SendOrder(long orderId)
+        {
+            var result = await _orderFacade.SendOrder(orderId);
+            return CommandResult(result);
+        }
+
+        [HttpPut("orderItem/increaseCount")]
 		public async Task<ApiResult> IncreaseItemCount(IncreaseOrderItemCountCommand command)
 		{
 			var result = await _orderFacade.IncreaseItemCount(command);
