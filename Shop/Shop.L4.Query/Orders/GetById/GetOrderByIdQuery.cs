@@ -25,7 +25,7 @@ namespace Shop.L4.Query.Orders.GetById
 			if (order == null)
 				return null;
 			var orderDto = order.Map();
-			orderDto.UserFullName = await _storeContext.Users.Where(f => f.Id == order.Id)
+			orderDto.UserFullName = await _storeContext.Users.Where(f => f.Id == order.UserId)
 				.Select(s =>$"{s.Name} {s.Family}").FirstAsync();
 
 			orderDto.Items = await orderDto.GetOrderItems(_dapperContext);

@@ -10,6 +10,7 @@ using Shop.L1.Domain.Role_Aggregate.Repository;
 using Shop.L1.Domain.Seller_Aggregate.Repository;
 using Shop.L1.Domain.SiteEntities.Repositories;
 using Shop.L1.Domain.User_Aggregate.Repository;
+using Shop.L3.Infrastructure._Utilities.MediatR;
 using Shop.L3.Infrastructure.Persistent.Dapper;
 using Shop.L3.Infrastructure.Persistent.Ef;
 using Shop.L3.Infrastructure.Persistent.Ef.Category_Aggregate;
@@ -38,6 +39,9 @@ namespace Shop.L3.Infrastructure
 			services.AddTransient<ICommentRepository, CommentRepository>();
 			services.AddTransient<IShippingMethodRepository, ShippingMethodRepository>();
 			services.AddTransient<IFileService, FileService>();
+			
+            services.AddSingleton<ICustomPublisher, Publisher>();
+			services.AddTransient<IServiceProvider, ServiceProvider>();
 
 			services.AddTransient(_=> new DapperContext(connectionString));
 			services.AddDbContext<StoreContext>(options =>
